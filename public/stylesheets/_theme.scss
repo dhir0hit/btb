@@ -1,0 +1,47 @@
+$primaryColor: #EAEBED;
+$secondaryColor: #98DAD9;
+$thirdColor: #5B8291;
+$highlightColor: #2E424D;
+$text-color: black;
+$text-danger: #c91919;
+$navButtonPadding: 8px 16px;
+
+$fontfamily-Juilius: 'Julius Sans One', sans-serif;
+$fontfamly-Josefin: 'Josefin Sans', sans-serif;
+
+
+
+// dark mode
+
+$d_text-color: white;
+
+@mixin button_outline(){
+  display: block;
+  border: 1px solid $highlightColor !important;
+  padding: $navButtonPadding;
+
+  &:hover {
+    background-color: $highlightColor !important;
+    color: $primaryColor !important;
+  }
+}
+
+@mixin button_filled(){
+  display: block;
+  border: 1px solid $highlightColor !important;
+  background-color: $highlightColor !important;
+  color: $primaryColor !important;
+  padding: $navButtonPadding;
+  &:hover{
+    background-color: $primaryColor !important;
+    color: $highlightColor !important;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  body{
+    background-color: $primaryColor;
+  }
+}
+
+

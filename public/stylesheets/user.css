@@ -1,0 +1,33 @@
+.user_container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+}
+.user_container .graphic {
+  padding: 2rem;
+  background-color: #c91919;
+}
+.user_container .graphic div img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+}
+.user_container .graphic h1, .user_container .graphic h3 {
+  text-transform: capitalize;
+}
+.user_container .detail {
+  padding: 2rem;
+}
+.user_container .detail div {
+  display: flex;
+  flex-direction: row;
+  padding: 1rem 0;
+}
+.user_container .detail h3 {
+  margin: 0;
+  text-transform: capitalize;
+  padding: 0.2rem;
+}
+
+/*# sourceMappingURL=user.css.map */

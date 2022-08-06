@@ -1,0 +1,69 @@
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #EAEBED;
+  }
+}
+main {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-block: 1rem;
+}
+
+.item-container {
+  width: 100%;
+  max-width: 1600px;
+  margin: 0;
+  display: flex;
+  flex-direction: row-reverse;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.Item {
+  width: 300px;
+  box-shadow: 3px 3px 3px rgba(59, 59, 59, 0.3);
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  text-decoration: none;
+  color: black;
+}
+.Item .graphic {
+  width: 100%;
+}
+.Item .graphic img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+.Item .info {
+  width: 100%;
+  padding: 10px;
+}
+.Item .info h1 {
+  padding: 0;
+}
+
+.rating {
+  width: fit-content;
+  width: -moz-fit-content;
+}
+.rating .row {
+  background-color: gray;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  width: fit-content;
+  width: -moz-fit-content;
+}
+.rating .row div {
+  padding: 0;
+  overflow: visible;
+  background-color: orange;
+  display: flex;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/*# sourceMappingURL=list.css.map */

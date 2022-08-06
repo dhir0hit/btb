@@ -1,0 +1,32 @@
+{% extends '_doublenavlayout.twig' %}
+
+{% block body %}
+    <div class="center-container">
+        <img src="/images/graphic_logo.png" alt="BTB">
+        {% if user %}
+            <h1 class="heading">welcome, {{ user }}</h1>
+        {% else %}
+            <h1 class="heading">hello, user</h1>
+        {% endif %}
+
+        {% if error %}
+            <p class="error">{{ error }}</p>
+        {% endif %}
+        <form action="login" method="post">
+            <label>
+                Username:
+                <input type="text" name="username" placeholder="Username" required>
+            </label>
+
+            <label>
+                Password:
+                <input type="password" name="password" placeholder="Password" required>
+            </label>
+
+            <input type="submit" value="login">
+
+        </form>
+        <a style="padding-block: 0.2rem;" href="signup">New customer? create new account</a>
+
+    </div>
+{% endblock %}

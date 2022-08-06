@@ -1,0 +1,33 @@
+{% macro item(id, name, brandName, review, price) %}
+    <a href="/" class="Item">
+        <div class="graphic">
+            <img src="/images/item/1.png" alt="image">
+        </div>
+        <div class="info">
+            <h5>{{ name }}</h5>
+            <h4>{{ brandName }}</h4>
+            <div class="rating">
+                <div class="row">
+                    {% set rating = 0 %}
+                    {% set count = 0 %}
+
+                    {% for r in review %}
+                        {% set rating = rating + r %}
+                    {% endfor %}
+
+                    {% set rating = rating / review|length %}
+
+
+                    <div style="width: {{ rating * 100 / 5 }}%">
+                        <span class="material-symbols-outlined">star</span>
+                        <span class="material-symbols-outlined">star</span>
+                        <span class="material-symbols-outlined">star</span>
+                        <span class="material-symbols-outlined">star</span>
+                        <span class="material-symbols-outlined">star</span>
+                    </div>
+                </div>
+            </div>
+            <h2>{{ price // 1 }} <sup>{{ (price % 1 * 100)|round }}</sup></h2>
+        </div>
+    </a>
+{% endmacro %}

@@ -1,0 +1,36 @@
+.user_container{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+
+  .graphic{
+    padding: 2rem;
+    background-color: #c91919;
+    div{
+      img{
+        width: 200px;
+        height: 200px;
+        object-fit: cover;
+      }
+    }
+    h1, h3{
+      text-transform: capitalize;
+    }
+  }
+
+  .detail {
+    padding: 2rem;
+    div{
+      display: flex;
+      flex-direction: row;
+      //gap: 10px;
+      padding: 1rem 0;
+    }
+    h3{
+      margin: 0;
+      text-transform: capitalize;
+      padding: 0.2rem;
+    }
+  }
+}

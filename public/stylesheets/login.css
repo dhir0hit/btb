@@ -1,0 +1,60 @@
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #EAEBED;
+  }
+}
+.center-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-block: 1rem;
+  padding: 2rem 5rem;
+}
+.center-container .heading {
+  text-transform: capitalize;
+  font-family: "Julius Sans One", sans-serif;
+}
+.center-container .error {
+  padding: 0;
+  margin: 0;
+  text-transform: capitalize;
+  color: #c91919;
+}
+.center-container form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: normal;
+}
+.center-container form label {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-block: 0.5rem;
+  font-family: "Josefin Sans", sans-serif;
+}
+.center-container form label * {
+  width: 200px;
+  font-family: inherit;
+}
+.center-container form input {
+  margin-top: 0.1rem;
+  padding: 0.4rem;
+}
+.center-container form input[type=submit] {
+  font-family: "Julius Sans One", sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+  display: block;
+  border: 1px solid #2E424D !important;
+  background-color: #2E424D !important;
+  color: #EAEBED !important;
+  padding: 8px 16px;
+}
+.center-container form input[type=submit]:hover {
+  background-color: #EAEBED !important;
+  color: #2E424D !important;
+}
+
+/*# sourceMappingURL=login.css.map */

@@ -1,0 +1,98 @@
+{% extends '_doublenavlayout.twig' %}
+
+{% block body %}
+    <div class="center-container">
+        <img src="/images/graphic_logo.png" alt="BTB">
+        {% if user %}
+            <h1 class="heading">welcome, {{ user }}</h1>
+        {% else %}
+            <h1 class="heading">Create a New Account</h1>
+        {% endif %}
+
+        {# If there is an error
+         # display error #}
+        {% if error %}
+            <p class="error">{{ error }}</p>
+        {% endif %}
+
+        {% if not loggedIn %}
+            <form action="signup" method="post">
+                <label>
+                    Email:
+                    <input type="text" name="email" placeholder="Email" required>
+                </label>
+
+                <label>
+                    Password:
+                    <input type="password" name="password1" placeholder="Password" required>
+                </label>
+                <label>
+                    Confirm Password:
+                    <input type="password" name="password2" placeholder="Password" required>
+                </label>
+
+                <input type="submit" value="Sign up">
+
+            </form>
+            <a style="padding-block: 0.2rem;" href="login">Already a user? login here</a>
+        {% else %}
+            <form action="signup" method="post">
+                <label>
+                    {# check if username already taken AJAX #}
+                    UserName:
+                    <input type="text" name="username" placeholder="Username" required>
+                </label>
+
+                <label>
+                    First Name:
+                    <input type="text" name="first_name" placeholder="First Name" >
+                </label>
+
+                <label>
+                    Last Name:
+                    <input type="text" name="last_name" placeholder="Last Name" >
+                </label>
+
+                <label>
+                    Contact:
+                    <input type="tel" name="phone_number" placeholder="phone number" >
+                </label>
+
+                <label>
+                    Address Line1:
+                    <input type="text" name="address1" placeholder="Address line 1" required>
+                </label>
+
+                <label>
+                    Address Line2:
+                    <input type="text" name="address2" placeholder="Address line 2" >
+                </label>
+
+                <label>
+                    City:
+                    <input type="text" name="city" placeholder="city" required>
+                </label>
+
+
+                <label>
+                    Province:
+                    <input type="text" name="province" placeholder="Province" required>
+                </label>
+
+
+                <label>
+                    Postal code:
+                    <input type="text" name="postal_code" placeholder="Postal Code" required>
+                </label>
+
+                <label>
+                    Business Account:
+                    <input type="radio" name="business_account" >
+                </label>
+
+                <input type="submit" value="Sign up">
+
+            </form>
+        {% endif %}
+    </div>
+{% endblock %}

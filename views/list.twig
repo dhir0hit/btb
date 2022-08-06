@@ -1,0 +1,10 @@
+{% extends '_doublenavlayout.twig' %}
+{% import "card.twig" as card %}
+
+{% block body %}
+    <div class="item-container" id="card_container">
+        {% for product in products %}
+            {{ card.item(product.id, product.name, product.brand, product.review, product.price) }}
+        {% endfor %}
+    </div>
+{% endblock %}
