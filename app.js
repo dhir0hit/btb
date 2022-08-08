@@ -35,11 +35,11 @@ app.use(function (req, res, next) {
 
 /* Loading session in website
  * key is set to secreetKeeey will be randomly set each session
- * setting it to last 60000 milliseconds*/
+ * setting it to last 600000 milliseconds*/
 app.use(session({
     secret: "secreetKeeey",
     saveUninitialized:true,
-    cookie: {maxAge: 60000},
+    cookie: {maxAge: 600000},
     resave: false
 }));
 

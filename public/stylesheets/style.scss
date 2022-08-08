@@ -93,7 +93,6 @@ $fontfamly-Josefin: 'Josefin Sans', sans-serif;
 
       li{
         list-style-type: none;
-
         a{
           text-decoration: none;
           color: theme.$text-color;
@@ -105,10 +104,22 @@ $fontfamly-Josefin: 'Josefin Sans', sans-serif;
             border: 1px solid theme.$text-color;
           }
         }
+
       }
 
       li.user{
         text-transform: capitalize;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 4px;
+        cursor: pointer;
+
+        #user_avatar{
+          img{
+            width: 30px;
+          }
+        }
       }
     }
   }

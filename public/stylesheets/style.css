@@ -103,6 +103,14 @@
 }
 .navigation_bar nav.lowerNav ul li.user {
   text-transform: capitalize;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+}
+.navigation_bar nav.lowerNav ul li.user #user_avatar img {
+  width: 30px;
 }
 
 .btn_outline {

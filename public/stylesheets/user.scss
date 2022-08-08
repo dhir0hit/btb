@@ -1,12 +1,23 @@
+@use 'theme';
+
 .user_container{
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 20px;
+  @include theme.box-shadow;
+  padding: 1rem;
+  margin-top: 2rem;
 
   .graphic{
     padding: 2rem;
-    background-color: #c91919;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
     div{
       img{
         width: 200px;
@@ -14,13 +25,21 @@
         object-fit: cover;
       }
     }
+
     h1, h3{
       text-transform: capitalize;
+      font-family: theme.$fontfamily-Camby;
+      margin: 0.5rem;
+    }
+
+    #business_account{
+      padding: 0;
+      margin: 0;
     }
   }
 
   .detail {
-    padding: 2rem;
+    padding: 1rem;
     div{
       display: flex;
       flex-direction: row;
@@ -31,6 +50,8 @@
       margin: 0;
       text-transform: capitalize;
       padding: 0.2rem;
+      font-family: theme.$fontfamily-Camby;
     }
   }
 }
+

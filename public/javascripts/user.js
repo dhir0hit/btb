@@ -10,9 +10,10 @@ $(document).ready(function () {
 
         $("#username")[0].innerHTML = currentUser.username;
 
-        if(currentUser.business_account) {
+        if(currentUser.businessAccount) {
             $("#business_account")[0].innerHTML = "Business Account"
         }
+
         $("#first_name")[0].innerHTML = currentUser.firstName;
         $("#last_name")[0].innerHTML = currentUser.lastName;
         $("#phone_number")[0].innerHTML = currentUser.phoneNumber;

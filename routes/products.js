@@ -17,7 +17,7 @@ router.get('/', function(req, res, next) {
         // Showing error page if there is an error
         if(error) {next(error)}
         else {
-            res.render('list', {title: "Explore", user: userName, products: docs});
+            res.render('Products/list', {title: "Explore", user: userName, products: docs});
         }
     });
 })
@@ -41,7 +41,7 @@ router.get('/filter/:tagId', function(req, res, next) {
         if(error) {next(error)}
         else {
             // write here
-            res.render('list', {title: "Explore", user: userName, products: docs});
+            res.render('Products/list', {title: "Explore", user: userName, products: docs});
         }
     });
 })

@@ -9,7 +9,7 @@ router.get('/', function(req, res, next) {
     } else {
         user = ""
     }
-    res.render('index', { title: 'BTB - Home', username: `${user}` });
+    res.render('Home/index', { title: 'BTB - Home', username: `${user}` });
 });
 
 /* GET about page. */
@@ -20,7 +20,18 @@ router.get('/about', function (req, res, next) {
     } else {
         userName = "";
     }
-   res.render('contact', {title: 'Contact', user: userName})
+   res.render('Home/about', {title: 'BTB - About', user: userName})
+});
+
+/* GET contact page. */
+router.get('/contact', function (req, res, next) {
+    let userName;
+    if (req.session.loggedIn != undefined && req.session.loggedIn) {
+        userName = req.session.username;
+    } else {
+        userName = "";
+    }
+   res.render('Home/contact', {title: 'BTB - Contact', user: userName})
 });
 
 

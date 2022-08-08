@@ -6,7 +6,7 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Julius+Sans+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cambay:ital,wght@0,400;0,700;1,400&family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Julius+Sans+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <link rel='stylesheet' href="/stylesheets/list.css">
     <link rel='stylesheet' href="/stylesheets/login.css">
@@ -52,7 +52,13 @@
 
         <ul>
             {% if user %}
-                <li class="user">hi, <span id="username_nav">{{ user }}</span></li>
+                <li onclick="window.location.href = '/user/'" class="user">
+                    hi,
+                    <span id="username_nav">{{ user }}</span>
+                    <span id="user_avatar">
+                        <img src="/images/avatar/1.png" alt="{{ user }}">
+                    </span>
+                </li>
             {% else %}
                 <li><a class="btn_outline" href="/user/login">Login</a></li>
                 <li><a class="btn_filled" href="/user/signup">Sign-up</a></li>
