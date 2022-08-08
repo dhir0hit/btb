@@ -7,11 +7,12 @@ router.get('/', function(req, res) {
   let userName;
   if (req.session.loggedIn != undefined && req.session.loggedIn) {
     userName = req.session.username
+    res.render('Users/user', { title: 'BTB - '+ userName + ' ', user: userName});
   } else {
     userName = ""
+    res.redirect("/user/login");
   }
 
-  res.render('Users/user', { title: 'BTB - '+ userName + ' ', user: userName});
 });
 
 
@@ -32,7 +33,7 @@ router.post('/login', function(req, res, next) {
   let user = req.body.username;
   let pass = req.body.password;
   let db = req.db;
-  let collection = db.get('Users');
+  let collection = db.get('users');
   // find user from db
 
   let bools;
@@ -41,9 +42,7 @@ router.post('/login', function(req, res, next) {
   /*collection.findOne({$or: [{username: user}, {email: user}]}, {}, function (error, docs) {
     if(error) {next(error)}
     else if (docs) {
-
     } else{
-
     }
   })*/
 
@@ -118,11 +117,16 @@ router.post('/signup', function(req, res, next) {
   let province = req.body.province;
   let postalCode = req.body.postal_code;
 
-  let business_account = req.body.business_account;
+  req.body.business_account;
+
+  let business_account = false
+  if (req.body.business_account && req.body.business_account == "on") {
+    business_account = true;
+  }
   let cart = [];
 
   let db = req.db;
-  let collection = db.get('Users');
+  let collection = db.get('users');
 
   // find user from db
   if (email) {
@@ -137,7 +141,7 @@ router.post('/signup', function(req, res, next) {
     req.session.loggedIn = true;
     req.session.username = user;
 
-    collection.insert({user, Pass, profilePic, firstName, lastName, phoneNumber, Email, addressL1, addressL2, city, province, postalCode, business_account, cart}, function (error, result) {
+    collection.insert({username: user, password: Pass, profilePic: profilePic, firstName: firstName, lastName: lastName, phoneNumber: phoneNumber, email: Email, address1: addressL1, address2: addressL2, city: city, province: province, postalCode: postalCode, businessAccount: business_account, cart: cart}, function (error, result) {
       if(error){next(error)}
       else{
         res.render('Users/signup', {title: 'BTB - Signup', user:req.session.username, loggedIn: false})
@@ -147,11 +151,106 @@ router.post('/signup', function(req, res, next) {
 });
 
 
+/* Get Edit page */
+router.get("/edit", function (req, res, next) {
+  let userName;
+  if (req.session.loggedIn != undefined && req.session.loggedIn) {
+    userName = req.session.username
+    res.render("Users/edit", {title: userName + " - Edit", user: userName})
+  } else {
+    res.redirect("/user/login");
+  }
+})
+
+/* post Edit page */
+router.post("/edit/save", function (req, res, next) {
+  let email = req.body.email;
+  let pass = req.body.password;
+  let userName = req.body.user_name;
+  let firstName = req.body.first_name;
+  let lastName = req.body.last_name;
+  let phoneNumber = req.body.phone_number;
+  let addressL1 = req.body.address_l1;
+  let addressL2 = req.body.address_l2;
+  let city = req.body.city;
+  let province = req.body.province;
+  let postalCode = req.body.postal_code;
+
+  let business_account = false
+  if (req.body.business_account && req.body.business_account === "on") {
+    let business_account = true;
+  }
+
+  let profilePic = "1";
+
+  let db = req.db;
+  let collection = db.get('users');
+
+  if (!req.session.username) {
+    res.redirect("/user/login");
+  } else {
+    if (userName && email && pass && firstName && addressL1 && city && province && postalCode) {
+      collection.update({username: req.session.username}, {$set: {username: userName, password: pass, profilePic: profilePic, firstName: firstName, lastName: lastName, phoneNumber: phoneNumber, email: email, address1: addressL1, address2: addressL2, city: city, province: province, postalCode: postalCode, businessAccount: business_account}}, function (error, result){
+        if (error) {res.send("<h1>Unable to update</h1>")}
+        else {
+          req.session.username = userName;
+        }
+      })
+      res.redirect("/user");
+    } else {
+      if (!userName) {
+        res.render("Users/edit", {
+          title: userName + " - Edit",
+          user: req.session.username,
+          error: "User name cannot be empty"
+        })
+      } else if (!email) {
+        res.render("Users/edit", {title: userName + " - Edit", user: userName, error: "Email cannot be empty"})
+      } else if (!pass) {
+        res.render("Users/edit", {title: userName + " - Edit", user: userName, error: "Password cannot be empty"})
+      } else if (!firstName) {
+        res.render("Users/edit", {title: userName + " - Edit", user: userName, error: "First Name cannot be empty"})
+      } else if (!addressL1) {
+        res.render("Users/edit", {title: userName + " - Edit", user: userName, error: "address cannot be empty"})
+      } else if (!city) {
+        res.render("Users/edit", {title: userName + " - Edit", user: userName, error: "City cannot be empty"})
+      } else if (!province) {
+        res.render("Users/edit", {title: userName + " - Edit", user: userName, error: "province cannot be empty"})
+      } else if (!postalCode) {
+        res.render("Users/edit", {title: userName + " - Edit", user: userName, error: "Postal Code cannot be empty"})
+      }
+    }
+  }
+});
+
+router.get("/delete", function (req, res, next) {
+  var db = req.db;
+  var collection = db.get('users');
+
+  collection.remove({username: req.session.username}, function (error, result) {
+    if(error){
+      res.send("<h1>unable to delete</h1>")
+    } else{
+      res.redirect("/user/login")
+    }
+  });
+
+});
+
+router.get("/logout", function (req, res, next) {
+  var db = req.db;
+  var collection = db.get('users');
+
+  req.session.username = "";
+  req.session.loggedIn = false;
+
+  res.redirect("/user/login")
+})
 
 
 router.get('/data', function (req, res, next) {
   var db = req.db;
-  var collection = db.get('Users');
+  var collection = db.get('users');
 
   collection.find({}, {}, function (error, docs) {
     if (error) {next(error)}

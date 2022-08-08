@@ -1,0 +1,87 @@
+.error {
+  color: #c91919;
+  font-family: "Josefin Sans", sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #EAEBED;
+  }
+}
+.edit_user_container {
+  margin-top: 1.5rem;
+}
+.edit_user_container form {
+  display: flex;
+  display: -ms-flex;
+  display: -webkit-flex;
+  flex-direction: column;
+  -ms-flex-direction: column;
+  -webkit-flex-direction: column;
+}
+.edit_user_container form div {
+  display: flex;
+  display: -ms-flex;
+  display: -webkit-flex;
+  flex-direction: column;
+  -ms-flex-direction: column;
+  -webkit-flex-direction: column;
+}
+.edit_user_container form div label {
+  display: flex;
+  display: -ms-flex;
+  display: -webkit-flex;
+  flex-direction: row;
+  -ms-flex-direction: row;
+  -webkit-flex-direction: row;
+  justify-content: space-between;
+  -webkit-justify-content: space-between;
+  align-items: center;
+  -webkit-align-items: center;
+  column-gap: 10px;
+  -moz-column-gap: 10px;
+  -webkit-column-gap: 10px;
+  margin-block: 0.4rem;
+  font-family: "Josefin Sans", sans-serif;
+}
+.edit_user_container form div label input {
+  padding: 0.3rem;
+  font-family: inherit;
+  width: 200px;
+}
+.edit_user_container form div.form-buttons {
+  display: flex;
+  display: -ms-flex;
+  display: -webkit-flex;
+  flex-direction: row;
+  -ms-flex-direction: row;
+  -webkit-flex-direction: row;
+  justify-content: space-evenly;
+}
+.edit_user_container form div.form-buttons button {
+  width: 100px;
+  font-family: "Julius Sans One", sans-serif;
+  font-weight: bold;
+  display: block;
+  border: 1px solid #2E424D !important;
+  background-color: #2E424D !important;
+  color: #EAEBED !important;
+  padding: 8px 16px;
+}
+.edit_user_container form div.form-buttons button:hover {
+  background-color: #EAEBED !important;
+  color: #2E424D !important;
+}
+.edit_user_container form div.form-buttons button[type=reset] {
+  display: block;
+  border: 1px solid #c91919 !important;
+  background-color: #c91919 !important;
+  color: #EAEBED !important;
+  padding: 8px 16px;
+}
+.edit_user_container form div.form-buttons button[type=reset]:hover {
+  background-color: #EAEBED !important;
+  color: #c91919 !important;
+}
+
+/*# sourceMappingURL=editUser.css.map */

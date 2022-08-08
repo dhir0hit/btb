@@ -5,7 +5,6 @@ let currentUser;
 $(document).ready(function () {
     $.getJSON('/user/data', function (data) {
         userListData = data;
-        console.log(data)
         currentUser = showUserInfo(data);
 
         $("#username")[0].innerHTML = currentUser.username;
@@ -29,7 +28,6 @@ $(document).ready(function () {
 
 function showUserInfo(data) {
     var user = $("#username_nav")[0].innerHTML;
-    console.log(user);
     var position;
 
     for (let i = 0; i < data.length; i++) {
@@ -38,6 +36,5 @@ function showUserInfo(data) {
         }
     }
 
-    console.log(data[position]);
     return data[position];
 }

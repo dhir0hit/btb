@@ -37,9 +37,25 @@ $d_text-color: white;
     color: $highlightColor !important;
   }
 }
+@mixin button_danger(){
+  display: block;
+  border: 1px solid $text-danger !important;
+  background-color: $text-danger !important;
+  color: $primaryColor !important;
+  padding: $navButtonPadding;
+  &:hover{
+    background-color: $primaryColor !important;
+    color: $text-danger !important;
+  }
+}
 
 @mixin box-shadow{
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.error{
+  color: $text-danger;
+  font-family: $fontfamly-Josefin;
 }
 
 @media (prefers-color-scheme: dark) {

@@ -1,6 +1,14 @@
 {% extends '../_doublenavlayout.twig' %}
 
 {% block body %}
+    <div class="sideNav-User">
+        <ul>
+            <li><a href="/user/edit">Edit</a></li>
+            <li><a href="/user/delete">Delete</a></li>
+            <li><a href="/user/logout">Logout</a></li>
+        </ul>
+    </div>
+
     <div class="user_container">
         <div class="graphic">
             <div>
@@ -26,6 +34,13 @@
             <h3 id="province">province</h3>
             <h3 id="postal_code">postal_code</h3>
         </div>
+    </div>
+
+    <div class="sideNav-User">
+        <ul class="login">
+            <li><a href="/user/login">Login</a></li>
+            <li><a href="/user/signup">Sign up</a></li>
+        </ul>
     </div>
     <script src="/javascripts/user.js"></script>
 {% endblock %}
