@@ -43,7 +43,7 @@ $fontfamly-Josefin: 'Josefin Sans', sans-serif;
       flex-direction: row;
       align-items: center;
       input[type="search"] {
-        width: 450px;
+        width: 550px !important;
         min-width: 100px;
         padding: 5px;
         border-radius: 0;
@@ -145,17 +145,48 @@ $fontfamly-Josefin: 'Josefin Sans', sans-serif;
 
 @media (max-width: 1180px){
   .navigation_bar {
-    background-color: #c91919;
 
     nav{
       flex-wrap: wrap;
 
       &.upperNav{
-
+        div {
+          form {
+            input[type="search"]{
+              width: 350px;
+            }
+          }
+        }
+        .List {
+          padding-top: 0.2rem;
+        }
       }
 
       &.lowerNav{
+        .filters {
+          //display: none;
+        }
+      }
+    }
+  }
+}
 
+@media (max-width: 830px){
+  .navigation_bar {
+
+    nav{
+      flex-wrap: wrap;
+
+      &.upperNav{
+        .List {
+          padding-top: 0.4rem;
+        }
+      }
+
+      &.lowerNav{
+        .filters {
+          display: none;
+        }
       }
     }
   }
@@ -180,7 +211,7 @@ footer {
 
   .row {
     padding: 1em 1em;
-    background-color: #2E424D;
+    background-color: theme.$highlightColor;
   }
 
   .row.primary {
@@ -234,7 +265,7 @@ footer {
 
   .copyright {
     padding: 0.3em 1em;
-    background-color: #5B8291;
+    border-left: 1px solid theme.$highlightColor;
   }
 
   .copyright p {

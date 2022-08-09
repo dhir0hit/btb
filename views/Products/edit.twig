@@ -1,5 +1,88 @@
 {% extends '../_doublenavlayout.twig' %}
 
 {% block start %}
-    htmlad
+    {% block body %}
+
+
+        <style>
+            input[type=text], select {
+                width: 100%;
+                padding: 12px 20px;
+                margin: 8px 0;
+                display: inline-block;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                box-sizing: border-box;
+            }
+            form
+            {
+                align:"center";
+            }
+            form {
+                width: 300px;
+                margin: 0 auto;
+            }
+
+            input[type=submit] {
+                width: 100%;
+                background-color: #4CAF50;
+                color: white;
+                padding: 14px 20px;
+                margin: 8px 0;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+            }
+
+            input[type=submit]:hover {
+                background-color: #45a049;
+            }
+
+            div {
+                border-radius: 5px;
+                background-color: #f2f2f2;
+                padding: 20px;
+            }
+        </style>
+        <body>
+
+        <h2>Editing <span id="editHeading">{{ prod_id }}</span></h2>
+
+        <form method="post" action="/product/edit/save">
+
+            <label for="name">name</label>
+            <input type="text" id="name" name="name" placeholder="Product name">
+
+            <label for="productType">productType</label>
+            <input type="text" id="type" name="productType" placeholder="Type of Product">
+
+            <label for="brandName">brandName</label>
+            <input type="text" id="brandName" name="brandName" placeholder="Which Brand do you want to buy">
+
+            {# TODO: create js function to seprate input to array #}
+            <label for="features">features</label>
+            <input type="text" id="features" name="features" placeholder="Special Features">
+
+            <label for="price">price</label>
+            <input type="text" id="price" name="price" placeholder="Price">
+
+            <label for="stock">stock</label>
+            <input type="text" id="stock" name="stock" placeholder="Stock">
+
+            <label for="tags">tags</label>
+            <input type="text" id="tags" name="tags" placeholder="Special Tags">
+
+            <input type="submit" value="Submit">
+
+        </form>
+
+        </body>
+
+
+
+
+        <script src="/javascripts/editProduct.js"></script>
+    {% endblock %}
 {% endblock %}
+
+

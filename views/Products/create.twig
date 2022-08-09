@@ -1,5 +1,41 @@
+
 {% extends '../_doublenavlayout.twig' %}
 
-{% block start %}
-    htmlad
-{% endblock %}
+    {% block body %}
+        <link rel='stylesheet' href="/stylesheets/crud.css">
+
+        <body>
+
+
+        {# Creating a form  #}
+        <form class="outline" method="post" action="create">
+
+            <label for="name"><b>Name</b></label>
+            <input type="text" id="name" name="name" placeholder="product name..">
+
+            <label for="productType"><b>Product Type</b></label>
+            <input type="text" id="name" name="name" placeholder="Type of Product..">
+
+            <label for="brandName"><b>Brand Name</b></label>
+            <input type="text" id="brandName" name="brandName" placeholder="What is the type of brand..">
+
+            {# TODO: create js function to separate input to array #}
+            <label for="features"><b>Features</b></label>
+            <input type="text" id="features" name="features" placeholder="Special Features ..">
+
+            <label for="price"><b>Price</b></label>
+            <input type="text" id="price" name="price" placeholder="Price ..">
+
+            <label for="stock"><b>Stock</b></label>
+            <input type="text" id="stock" name="stock" placeholder="Stock ..">
+
+            <label for="tags"><b>Tags</b></label>
+            <input type="text" id="tags" name="tags" placeholder="Special Tags ..">
+
+            <input type="submit" value="Submit">
+
+        </form>
+
+        </body>
+    {% endblock %}
+

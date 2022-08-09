@@ -1,7 +1,27 @@
+
 {% macro item(id, name, brandName, review, price) %}
-    <a href="/" class="Item">
+{% set imageList = ["images/item/1.png",
+    "images/item/2.jpg",
+    "images/item/3.jpg",
+    "images/item/4.jpg",
+    "images/item/5.jpg",
+    "images/item/6.jpg",
+    "images/item/7.jpg",
+    "images/item/8.jpg",
+    "images/item/9.jpg",
+    "images/item/10.jpg",
+    "images/item/11.webp",
+    "images/item/12.jpg",
+    "images/item/13.jpg",
+    "images/item/14.webp",
+    "images/item/15.jpg",
+    "images/item/16.png",
+    "images/item/17.webp",
+    "images/item/18.png"] %}
+
+    <a href="product/details?id={{ id }}&name={{ name }}" class="Item" onclick="buttonClick(event)">
         <div class="graphic">
-            <img src="/images/item/1.png" alt="image">
+            <img src="{{ imageList[id-1] }}" alt="image">
         </div>
         <div class="info">
             <h5>{{ name }}</h5>
@@ -30,4 +50,10 @@
             <h2>{{ price // 1 }} <sup>{{ (price % 1 * 100)|round }}</sup></h2>
         </div>
     </a>
+    <script>
+
+        function buttonClick(event) {
+            console.log(event)
+        }
+    </script>
 {% endmacro %}

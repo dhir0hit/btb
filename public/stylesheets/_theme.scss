@@ -16,8 +16,10 @@ $fontfamily-Camby: 'Cambay', sans-serif;
 $d_text-color: white;
 
 @mixin button_outline(){
+  text-decoration: none;
   display: block;
   border: 1px solid $highlightColor !important;
+  color: $highlightColor !important;
   padding: $navButtonPadding;
 
   &:hover {

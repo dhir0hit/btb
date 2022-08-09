@@ -1,0 +1,68 @@
+{% extends '../_doublenavlayout.twig' %}
+
+{% block body %}
+    <link rel='stylesheet' href="/stylesheets/productDetails.css">
+
+    {% set imageList = ["images/item/1.png",
+        "images/item/2.jpg",
+        "images/item/3.jpg",
+        "images/item/4.jpg",
+        "images/item/5.jpg",
+        "images/item/6.jpg",
+        "images/item/7.jpg",
+        "images/item/8.jpg",
+        "images/item/9.jpg",
+        "images/item/10.jpg",
+        "images/item/11.webp",
+        "images/item/12.jpg",
+        "images/item/13.jpg",
+        "images/item/14.webp",
+        "images/item/15.jpg",
+        "images/item/16.png",
+        "images/item/17.webp",
+        "images/item/18.png"] %}
+
+
+    <div class="detail_container">
+        <div class="graphic">
+            <img src="/{{ imageList[product.id - 1] }}" alt="{{ product.name }}">
+
+            {% set rating = 0 %}
+            {% set count = 0 %}
+
+            {% for r in product.review %}
+                {% set rating = rating + r %}
+            {% endfor %}
+
+            {% set rating = rating / review|length %}
+
+            <div style="width: {{ 4.3 * 100 / 5 }}%">
+                <span class="material-symbols-outlined">star</span>
+                <span class="material-symbols-outlined">star</span>
+                <span class="material-symbols-outlined">star</span>
+                <span class="material-symbols-outlined">star</span>
+                <span class="material-symbols-outlined">star</span>
+            </div>
+        </div>
+        <div class="info" >
+            <div>
+                <h2 id="name">{{ product.name }}</h2>
+                <h4 id="brand_name">{{ product.brandName }}</h4>
+            </div>
+            <div>
+                <h3>Type: {{ product.productType }}</h3>
+            </div>
+            <div>
+                <h2>Price: {{ product.price }}</h2>
+                <h3>Stock: {{ product.stock }}</h3>
+            </div>
+            <div>
+            {% if businessAccount %}
+                <a class="btn_outline" href="/product/edit?id={{ product.id }}">Edit</a>
+                <a class="btn_outline" href="/product/create">Create</a>
+            {% endif %}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

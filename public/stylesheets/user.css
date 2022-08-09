@@ -20,8 +20,10 @@
   height: 95px;
 }
 .sideNav-User ul li a {
+  text-decoration: none;
   display: block;
   border: 1px solid #083b66 !important;
+  color: #083b66 !important;
   padding: 8px 16px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   text-align: center;
