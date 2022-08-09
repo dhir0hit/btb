@@ -1,6 +1,171 @@
 {% extends '../layout.twig' %}
 
 {% block body %}
-  <h1>{{title}}</h1>
-  <p>Welcome to {{user}}</p>
+  <div class="header" >
+    <div class="slides">
+      <!-- (A) FIRST SLIDE -->
+      <input type="radio" name="s" id="radio1" checked/>
+      <div class="slide" id="slide1">
+        <img src ="/images/s1.jpg">
+        <label class="last" for="radio3">&lt;</label>
+        <label class="next" for="radio2">&gt;</label>
+        <div class="caption">Most Lovable University Essentials from BTB Basics </div>
+      </div>
+
+      <!-- (B) SECOND SLIDE -->
+      <input type="radio" name="s" id="radio2"/>
+      <div class="slide" id="slide2">
+        <img src ="/images/s2.jpeg">
+        <label class="last" for="radio1">&lt;</label>
+        <label class="next" for="radio3">&gt;</label>
+        <div class="caption"> Lovable Home Guides from BTB</div>
+      </div>
+
+      <!-- (C) THIRD SLIDE -->
+      <input type="radio" name="s" id="radio3"/>
+      <div class="slide" id="slide3">
+        <img src ="/images/s3.jpeg">
+        <label class="last" for="radio2">&lt;</label>
+        <label class="next" for="radio1">&gt;</label>
+        <div class="caption"> Electronics at Exclusive Prizes</div>
+      </div>
+    </div>
+  </div>
+  <div class="ro">
+    <div class="colum">
+      <h1>Furnish Your Dorm Room</h1>
+
+      <div class="box" >
+        <img src = "/images/Room.jpg" class="responsive">
+      </div>
+    </div>
+    <div class="colum">
+      <h1>Best Book Of The Month</h1>
+
+      <div class="box" >
+        <img src = "/images/book.jpg" class="responsive">
+      </div>
+    </div>
+    <div class="colum">
+      <h1>Shop Your Favourite Electronic at exclusive prizes</h1>
+
+      <div class="box" >
+        <img src = "/images/electronics.jpg" class="responsive">
+      </div>
+    </div>
+    <div class="colum">
+      <h1>GETAWAY-READY PICKUPS</h1>
+
+      <div class="box" >
+        <img src = "/images/fashion.jpg" class="responsive">
+      </div>
+    </div>
+    <div class="colum">
+      <h1>Shop our Kitchen Store</h1>
+
+      <div class="box" >
+        <img src = "/images/kitchen.jpg" class="responsive">
+      </div>
+    </div>
+    <div class="colum">
+      <h1>Specialized Nutrition For Pets</h1>
+
+      <div class="box" >
+        <img src = "/images/pet.jpg" class="responsive">
+      </div>
+    </div>
+    <div class="colum">
+      <h1>Toys and Game Gift Guide
+      </h1>
+
+      <div class="box" >
+        <img src = "/images/toy.jpg" class="responsive">
+      </div>
+    </div>
+    <div class="colum">
+      <h1>University life must-haves</h1>
+
+      <div class="box" >
+        <img src = "/images/sport.jpg" class="responsive">
+      </div>
+    </div>
+
+  </div>
+  <div class="foot" style="padding-top: 8vh;"> </div>
+  <footer>
+    <div class="row primary">
+      <div class="column about">
+        <h3>Get To Know Us</h3>
+
+        <ul>
+
+
+          <li>
+            <a href="#faq">Careers</a>
+          </li>
+          <li>
+            <a href="#cookies-policy">BTB and Our Planet</a>
+          </li>
+          <li>
+            <a href="#terms-of-services">  Investor Relations</a>
+          </li>
+          <li>
+            <a href="#support">  Press Releases</a>
+          </li>
+        </ul>
+
+      </div>
+
+      <div class="column links">
+        <h3>Make Money with Us</h3>
+
+        <ul>
+
+          <li>
+            <a href="#faq">  Sell on BTB</a>
+          </li>
+          <li>
+            <a href="#cookies-policy">BTB Associates</a>
+          </li>
+          <li>
+            <a href="#terms-of-services">  Sell on BTB Handmade</a>
+          </li>
+          <li>
+            <a href="#support"> Advertise Your Products</a>
+          </li>
+        </ul>
+
+      </div>
+
+
+      <div class="column links">
+
+
+
+
+
+        <h3>Let Us Help You</h3>
+        <ul>
+          <li>
+            <a href="#faq">COVID-19 and BTB</a>
+          </li>
+          <li>
+            <a href="#cookies-policy"> Shipping Rates & Policies</a>
+          </li>
+          <li>
+            <a href="#terms-of-services"> BTB Prime</a>
+          </li>
+          <li>
+            <a href="#support">Returns Are Easy
+              Manage</a>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="row copyright">
+      <p>Copyright &copy; 2021 Foolish Developer</p>
+    </div>
+  </footer>
 {% endblock %}

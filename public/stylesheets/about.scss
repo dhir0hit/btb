@@ -1,0 +1,22 @@
+.three{
+  display: flex;
+  flex-wrap: wrap;
+
+
+}
+.one{
+  padding: 10px;
+  flex:30%;
+}
+
+.one h3{
+  text-align: center;
+}
+
+
+@media screen and (max-width: 992px) {
+  .three {
+    flex-direction: column;
+  }
+
+}

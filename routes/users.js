@@ -231,6 +231,8 @@ router.get("/delete", function (req, res, next) {
     if(error){
       res.send("<h1>unable to delete</h1>")
     } else{
+      req.session.username = "";
+      req.session.loggedIn = false;
       res.redirect("/user/login")
     }
   });

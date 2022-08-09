@@ -2,9 +2,80 @@
 {% import "Products/card.twig" as card %}
 
 {% block body %}
-    <div class="item-container" id="card_container">
-        {% for product in products %}
-            {{ card.item(product.id, product.name, product.brand, product.review, product.price) }}
-        {% endfor %}
+    <div class="main">
+        <div class="item-container" id="card_container">
+            {% for product in products %}
+                {{ card.item(product.id, product.name, product.brand, product.review, product.price) }}
+            {% endfor %}
+        </div>
     </div>
+    <footer>
+        <div class="row primary">
+            <div class="column about">
+                <h3> Know Us</h3>
+                <ul>
+                    <li>
+                        <a href="#faq">Careers</a>
+                    </li>
+                    <li>
+                        <a href="#cookies-policy">BTB and Our Planet</a>
+                    </li>
+                    <li>
+                        <a href="#terms-of-services">  Investor Relations</a>
+                    </li>
+                    <li>
+                        <a href="#support">  Press Releases</a>
+                    </li>
+                </ul>
+
+            </div>
+
+            <div class="column links">
+                <h3>Make Money with Us</h3>
+
+                <ul>
+
+                    <li>
+                        <a href="#faq">  Sell on BTB</a>
+                    </li>
+                    <li>
+                        <a href="#cookies-policy">BTB Associates</a>
+                    </li>
+                    <li>
+                        <a href="#terms-of-services">  Sell on BTB Handmade</a>
+                    </li>
+                    <li>
+                        <a href="#support"> Advertise Your Products</a>
+                    </li>
+                </ul>
+
+            </div>
+
+
+            <div class="column links">
+
+                <h3>Let Us Help You</h3>
+                <ul>
+                    <li>
+                        <a href="#faq">COVID-19 and BTB</a>
+                    </li>
+                    <li>
+                        <a href="#cookies-policy"> Shipping Rates & Policies</a>
+                    </li>
+                    <li>
+                        <a href="#terms-of-services"> BTB Prime</a>
+                    </li>
+                    <li>
+                        <a href="#support">Returns Are Easy
+                            Manage</a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="row copyright">
+            <p>Copyright &copy; 2021 Foolish Developer</p>
+        </div>
+    </footer>
 {% endblock %}
