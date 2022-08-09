@@ -5,7 +5,7 @@
 
 @media (prefers-color-scheme: dark) {
   body {
-    background-color: #EAEBED;
+    background-color: whitesmoke;
   }
 }
 .edit_user_container {
@@ -63,24 +63,24 @@
   font-family: "Julius Sans One", sans-serif;
   font-weight: bold;
   display: block;
-  border: 1px solid #2E424D !important;
-  background-color: #2E424D !important;
-  color: #EAEBED !important;
+  border: 1px solid #083b66 !important;
+  background-color: #083b66 !important;
+  color: whitesmoke !important;
   padding: 8px 16px;
 }
 .edit_user_container form div.form-buttons button:hover {
-  background-color: #EAEBED !important;
-  color: #2E424D !important;
+  background-color: whitesmoke !important;
+  color: #083b66 !important;
 }
 .edit_user_container form div.form-buttons button[type=reset] {
   display: block;
   border: 1px solid #c91919 !important;
   background-color: #c91919 !important;
-  color: #EAEBED !important;
+  color: whitesmoke !important;
   padding: 8px 16px;
 }
 .edit_user_container form div.form-buttons button[type=reset]:hover {
-  background-color: #EAEBED !important;
+  background-color: whitesmoke !important;
   color: #c91919 !important;
 }
 

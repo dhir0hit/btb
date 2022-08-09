@@ -5,7 +5,7 @@
 
 @media (prefers-color-scheme: dark) {
   body {
-    background-color: #EAEBED;
+    background-color: whitesmoke;
   }
 }
 .navigation_bar {
@@ -18,7 +18,7 @@
   padding: 0;
 }
 .navigation_bar nav {
-  width: 100%;
+  width: 90%;
   max-width: 1500px;
   display: flex;
   flex-direction: row;
@@ -31,38 +31,41 @@
   font-family: "Julius Sans One", sans-serif;
   text-decoration: none;
 }
+.navigation_bar nav.upperNav .Logo a img {
+  height: 50px;
+}
 .navigation_bar nav.upperNav form {
   display: flex;
   flex-direction: row;
   align-items: center;
 }
 .navigation_bar nav.upperNav form input[type=search] {
-  width: 500px;
+  width: 450px;
   min-width: 100px;
   padding: 5px;
   border-radius: 0;
-  border: 1px solid #2E424D;
+  border: 1px solid #083b66;
   display: block;
-  border: 1px solid #2E424D !important;
+  border: 1px solid #083b66 !important;
   padding: 8px 16px;
 }
 .navigation_bar nav.upperNav form input[type=search]:hover {
-  background-color: #2E424D !important;
-  color: #EAEBED !important;
+  background-color: #083b66 !important;
+  color: whitesmoke !important;
 }
 .navigation_bar nav.upperNav form input[type=search]:focus {
   outline: none;
 }
 .navigation_bar nav.upperNav form button[type=submit] {
   display: block;
-  border: 1px solid #2E424D !important;
-  background-color: #2E424D !important;
-  color: #EAEBED !important;
+  border: 1px solid #083b66 !important;
+  background-color: #083b66 !important;
+  color: whitesmoke !important;
   padding: 8px 16px;
 }
 .navigation_bar nav.upperNav form button[type=submit]:hover {
-  background-color: #EAEBED !important;
-  color: #2E424D !important;
+  background-color: whitesmoke !important;
+  color: #083b66 !important;
 }
 .navigation_bar nav.upperNav .List {
   padding: 0;
@@ -121,24 +124,24 @@
 
 .btn_outline {
   display: block;
-  border: 1px solid #2E424D !important;
+  border: 1px solid #083b66 !important;
   padding: 8px 16px;
 }
 .btn_outline:hover {
-  background-color: #2E424D !important;
-  color: #EAEBED !important;
+  background-color: #083b66 !important;
+  color: whitesmoke !important;
 }
 
 .btn_filled {
   display: block;
-  border: 1px solid #2E424D !important;
-  background-color: #2E424D !important;
-  color: #EAEBED !important;
+  border: 1px solid #083b66 !important;
+  background-color: #083b66 !important;
+  color: whitesmoke !important;
   padding: 8px 16px;
 }
 .btn_filled:hover {
-  background-color: #EAEBED !important;
-  color: #2E424D !important;
+  background-color: whitesmoke !important;
+  color: #083b66 !important;
 }
 
 #sidebar {
@@ -176,6 +179,12 @@
 #sidebar .sidebar a .fa-caret-down, #sidebar .dropdown-btn .fa-caret-down {
   float: right;
   padding-right: 8px;
+}
+
+@media (max-width: 1180px) {
+  .navigation_bar {
+    background-color: #c91919;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

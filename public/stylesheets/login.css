@@ -5,7 +5,7 @@
 
 @media (prefers-color-scheme: dark) {
   body {
-    background-color: #EAEBED;
+    background-color: whitesmoke;
   }
 }
 .center-container {
@@ -52,14 +52,14 @@
   font-weight: bold;
   text-transform: uppercase;
   display: block;
-  border: 1px solid #2E424D !important;
-  background-color: #2E424D !important;
-  color: #EAEBED !important;
+  border: 1px solid #083b66 !important;
+  background-color: #083b66 !important;
+  color: whitesmoke !important;
   padding: 8px 16px;
 }
 .center-container form input[type=submit]:hover {
-  background-color: #EAEBED !important;
-  color: #2E424D !important;
+  background-color: whitesmoke !important;
+  color: #083b66 !important;
 }
 
 /*# sourceMappingURL=login.css.map */

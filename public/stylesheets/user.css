@@ -5,7 +5,7 @@
 
 @media (prefers-color-scheme: dark) {
   body {
-    background-color: #EAEBED;
+    background-color: whitesmoke;
   }
 }
 .sideNav-User {
@@ -21,7 +21,7 @@
 }
 .sideNav-User ul li a {
   display: block;
-  border: 1px solid #2E424D !important;
+  border: 1px solid #083b66 !important;
   padding: 8px 16px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   text-align: center;
@@ -32,21 +32,21 @@
   font-family: "Josefin Sans", sans-serif;
 }
 .sideNav-User ul li a:hover {
-  background-color: #2E424D !important;
-  color: #EAEBED !important;
+  background-color: #083b66 !important;
+  color: whitesmoke !important;
 }
 .sideNav-User .login li a {
   transform: rotate(90deg) translate(50%);
   display: block;
-  border: 1px solid #2E424D !important;
-  background-color: #2E424D !important;
-  color: #EAEBED !important;
+  border: 1px solid #083b66 !important;
+  background-color: #083b66 !important;
+  color: whitesmoke !important;
   padding: 8px 16px;
   text-align: center;
 }
 .sideNav-User .login li a:hover {
-  background-color: #EAEBED !important;
-  color: #2E424D !important;
+  background-color: whitesmoke !important;
+  color: #083b66 !important;
 }
 
 .user_container {
