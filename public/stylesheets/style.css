@@ -23,6 +23,7 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  flex-wrap: nowrap;
   align-items: center;
   padding: 10px;
   border-bottom: 1px solid #5B8291;
@@ -147,6 +148,9 @@
 @media (max-width: 1180px) {
   .navigation_bar {
     background-color: #c91919;
+  }
+  .navigation_bar nav {
+    flex-wrap: wrap;
   }
 }
 footer {
