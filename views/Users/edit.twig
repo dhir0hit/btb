@@ -1,91 +1,93 @@
 {% extends '../_doublenavlayout.twig' %}
 
 {% block body %}
-    <div class="edit_user_container">
-        {% if error %}
-            <p class="error">{{ error }}</p>
-        {% endif %}
-        <form method="post" action="/user/edit/save">
-            <div>
-                <label>
-                    First Name
-                    <input name="first_name" id="first_name" type="text">
-                </label>
+    <div class="main">
+        <div class="edit_user_container">
+            {% if error %}
+                <p class="error">{{ error }}</p>
+            {% endif %}
+            <form method="post" action="/user/edit/save">
+                <div>
+                    <label>
+                        First Name
+                        <input name="first_name" id="first_name" type="text">
+                    </label>
 
-                <label>
-                    Last Name
-                    <input name="last_name" id="last_name" type="text">
-                </label>
-            </div>
+                    <label>
+                        Last Name
+                        <input name="last_name" id="last_name" type="text">
+                    </label>
+                </div>
 
-            <hr width="80%"/>
+                <hr width="80%"/>
 
-            <div>
-                <label>
-                    Phone Number
-                    <input name="phone_number" id="phone_number" type="tel">
-                </label>
+                <div>
+                    <label>
+                        Phone Number
+                        <input name="phone_number" id="phone_number" type="tel">
+                    </label>
 
-                <label>
-                    Email
-                    <input name="email" id="email" type="email">
-                </label>
-            </div>
+                    <label>
+                        Email
+                        <input name="email" id="email" type="email">
+                    </label>
+                </div>
 
-            <hr width="80%"/>
+                <hr width="80%"/>
 
-            <div>
-                <label>
-                    User Name
-                    <input name="user_name" id="user_name" type="text">
-                </label>
-                <label>
-                    Password
-                    <input name="password" id="password" type="password">
-                </label>
-            </div>
+                <div>
+                    <label>
+                        User Name
+                        <input name="user_name" id="user_name" type="text">
+                    </label>
+                    <label>
+                        Password
+                        <input name="password" id="password" type="password">
+                    </label>
+                </div>
 
-            <hr width="80%"/>
+                <hr width="80%"/>
 
-            <div>
-                <label>
-                    Address Line 1
-                    <input name="address_l1" id="address_l1" type="text">
-                </label>
+                <div>
+                    <label>
+                        Address Line 1
+                        <input name="address_l1" id="address_l1" type="text">
+                    </label>
 
-                <label>
-                    Address Line 2
-                    <input name="address_l2" id="address_l2" type="text">
-                </label>
+                    <label>
+                        Address Line 2
+                        <input name="address_l2" id="address_l2" type="text">
+                    </label>
 
-                <label>
-                    City
-                    <input name="city" id="city" type="text">
-                </label>
+                    <label>
+                        City
+                        <input name="city" id="city" type="text">
+                    </label>
 
-                <label>
-                    Province
-                    <input name="province" id="province" type="text">
-                </label>
+                    <label>
+                        Province
+                        <input name="province" id="province" type="text">
+                    </label>
 
-                <label>
-                    Postal Code
-                    <input name="postal_code" id="postal_code" type="text">
-                </label>
+                    <label>
+                        Postal Code
+                        <input name="postal_code" id="postal_code" type="text">
+                    </label>
 
-                <label>
-                    Business Account
-                    <input name="business_account" id="business_account" type="checkbox">
-                </label>
-            </div>
+                    <label>
+                        Business Account
+                        <input name="business_account" id="business_account" type="checkbox">
+                    </label>
+                </div>
 
-            <hr width="80%"/>
+                <hr width="80%"/>
 
-            <div class="form-buttons">
-                <button id="reset" type="reset">reset</button>
-                <button type="submit">confirm</button>
-            </div>
-        </form>
+                <div class="form-buttons">
+                    <button id="reset" type="reset">reset</button>
+                    <button type="submit">confirm</button>
+                </div>
+            </form>
+        </div>
     </div>
     <script src="/javascripts/editUser.js"></script>
 {% endblock %}

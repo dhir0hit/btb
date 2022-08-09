@@ -21,6 +21,7 @@ $fontfamly-Josefin: 'Josefin Sans', sans-serif;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    flex-wrap: nowrap;
     align-items: center;
     padding: 10px;
     border-bottom: 1px solid theme.$thirdColor;
@@ -147,6 +148,7 @@ $fontfamly-Josefin: 'Josefin Sans', sans-serif;
     background-color: #c91919;
 
     nav{
+      flex-wrap: wrap;
 
       &.upperNav{
 
