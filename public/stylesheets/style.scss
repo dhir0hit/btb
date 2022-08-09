@@ -178,7 +178,7 @@ footer {
 
   .row {
     padding: 1em 1em;
-    background-color: #2E424D;
+    background-color: theme.$highlightColor;
   }
 
   .row.primary {
@@ -232,12 +232,18 @@ footer {
 
   .copyright {
     padding: 0.3em 1em;
-    background-color: #5B8291;
+    background-color: white;
+    color: black;
+    border-bottom: 1px solid theme.$thirdColor;
+    border-left:1px solid theme.$thirdColor;
+
+
   }
 
   .copyright p {
     font-size: 0.9em;
-    text-align: right;
+
+    text-align: center;
   }
 }
 @media screen and (max-width: 850px) {

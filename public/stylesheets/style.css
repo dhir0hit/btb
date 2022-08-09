@@ -163,7 +163,7 @@ footer footer * {
 
 footer .row {
   padding: 1em 1em;
-  background-color: #2E424D;
+  background-color: #083b66;
 }
 footer .row.primary {
   display: grid;
@@ -208,11 +208,14 @@ footer .about p {
 }
 footer .copyright {
   padding: 0.3em 1em;
-  background-color: #5B8291;
+  background-color: white;
+  color: black;
+  border-bottom: 1px solid #5B8291;
+  border-left: 1px solid #5B8291;
 }
 footer .copyright p {
   font-size: 0.9em;
-  text-align: right;
+  text-align: center;
 }
 
 @media screen and (max-width: 850px) {
