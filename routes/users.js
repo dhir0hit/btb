@@ -29,22 +29,12 @@ router.get('/login', function(req, res, next) {
 
 /* GET home page. */
 router.post('/login', function(req, res, next) {
-  // res.render('login', { title: 'Login', user:"" });
   let user = req.body.username;
   let pass = req.body.password;
   let db = req.db;
   let collection = db.get('users');
-  // find user from db
 
   let bools;
-
-
-  /*collection.findOne({$or: [{username: user}, {email: user}]}, {}, function (error, docs) {
-    if(error) {next(error)}
-    else if (docs) {
-    } else{
-    }
-  })*/
 
   collection.findOne({username: user}, {}, function (e, docs) {
     if (e) {
@@ -54,7 +44,7 @@ router.post('/login', function(req, res, next) {
       if(docs.password === pass){
         req.session.username = docs.username;
         req.session.loggedIn = true;
-        // res.render('user', { title: 'BTB - '+ req.session.username + ' ', user: req.session.username});
+        req.session.businessAccount = docs.businessAccount;
         res.redirect("/user");
       } else{
         res.render('Users/login', {title: 'BTB - Login', user: "", error: "password incorrect"});
@@ -72,7 +62,7 @@ router.post('/login', function(req, res, next) {
       if(docs.password === pass){
         req.session.username = docs.username;
         req.session.loggedIn = true;
-        // res.render('user', { title: 'BTB - '+ req.session.username + ' ', user: req.session.username});
+        req.session.businessAccount = docs.businessAccount;
         res.redirect("/user");
       } else{
         res.render('Users/login', {title: 'BTB - Login', user: "", error: "password incorrect"});
@@ -104,6 +94,7 @@ router.post('/signup', function(req, res, next) {
   let userLoggedIn = false;
   let email = req.body.email;
   let pass = req.body.password1;
+  let pass2 = req.body.password2;
 
   let profilePic = "1";
 
@@ -117,8 +108,6 @@ router.post('/signup', function(req, res, next) {
   let province = req.body.province;
   let postalCode = req.body.postal_code;
 
-  req.body.business_account;
-
   let business_account = false
   if (req.body.business_account && req.body.business_account == "on") {
     business_account = true;
@@ -130,9 +119,13 @@ router.post('/signup', function(req, res, next) {
 
   // find user from db
   if (email) {
-    req.session.email = email;
-    req.session.password = pass;
-    res.render('Users/signup', {title: 'BTB - Signup', user:"", loggedIn: true})
+    if (pass === pass2) {
+      req.session.email = email;
+      req.session.password = pass;
+      res.render('Users/signup', {title: 'BTB - Signup', user: "", loggedIn: true})
+    } else{
+      res.render('Users/signup', { title: 'BTB - Signup', user: "", error: "passwords did not match" , loggedIn: false});
+    }
   }
   if(user) {
     let Email = req.session.email;
@@ -140,6 +133,8 @@ router.post('/signup', function(req, res, next) {
 
     req.session.loggedIn = true;
     req.session.username = user;
+    req.session.businessAccount = business_account;
+
 
     collection.insert({username: user, password: Pass, profilePic: profilePic, firstName: firstName, lastName: lastName, phoneNumber: phoneNumber, email: Email, address1: addressL1, address2: addressL2, city: city, province: province, postalCode: postalCode, businessAccount: business_account, cart: cart}, function (error, result) {
       if(error){next(error)}
@@ -245,6 +240,7 @@ router.get("/logout", function (req, res, next) {
 
   req.session.username = "";
   req.session.loggedIn = false;
+  req.session.businessAccount = false;
 
   res.redirect("/user/login")
 })
