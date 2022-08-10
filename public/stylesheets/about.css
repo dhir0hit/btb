@@ -1,21 +1,20 @@
+.three {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .one {
   padding: 10px;
   flex: 30%;
-  background-color: whitesmoke;
 }
+
 .one h3 {
   text-align: center;
-}
-.one p {
-  text-align: justify;
 }
 
 @media screen and (max-width: 992px) {
   .three {
     flex-direction: column;
-  }
-  .two {
-    width: 100%;
   }
 }
 

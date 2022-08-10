@@ -1,5 +1,181 @@
 {% extends '../_doublenavlayout.twig' %}
 
 {% block body %}
-    {{ title }}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <div class="container1">
+
+        <div class="form">
+            <div class="contact-info">
+                <h3 class="title">Let's get in touch</h3>
+                <p class="text">
+                   For further inquires you can contact us or if you face any issues
+                    </p>
+
+                <div class="info1">
+                    <div class="information">
+
+                        <p>92 Cherry Drive Toronto, M9V 3N8</p>
+                    </div>
+                    <div class="information">
+
+                        <p>btbshopping66@gmail.com</p>
+                    </div>
+                    <div class="information">
+
+                        <p>647-742-9644</p>
+                    </div>
+                </div>
+
+                <div class="social-media">
+                    <p>Connect with us :</p>
+                    <div class="social-icons">
+                        <a href="#">
+                            <i class="fa fa-facebook"></i>
+                        </a>
+                        <a href="#">
+                            <i class="fa fa-twitter"></i>
+                        </a>
+                        <a href="#">
+                            <i class="fa fa-instagram"></i>
+                        </a>
+                        <a href="#">
+                            <i class="fa fa-snapchat-ghost"></i>
+                        </a>
+                    </div><br>
+
+                </div>
+            </div>
+
+            <div class="contact-form">
+                <span class="circle one"></span>
+                <span class="circle two"></span>
+
+                <form action="index.html" autocomplete="off">
+                    <h3 class="title">Contact us</h3>
+                    <div class="input-container">
+                        <input type="text" name="name" class="input" />
+                        <label for="">Username</label>
+                        <span>Username</span>
+                    </div>
+                    <div class="input-container">
+                        <input type="email" name="email" class="input" />
+                        <label for="">Email</label>
+                        <span>Email</span>
+                    </div>
+                    <div class="input-container">
+                        <input type="tel" name="phone" class="input" />
+                        <label for="">Phone</label>
+                        <span>Phone</span>
+                    </div>
+                    <div class="input-container textarea">
+                        <textarea name="message" class="input"></textarea>
+                        <label for="">Message</label>
+                        <span>Message</span>
+                    </div>
+                    <input type="sub" value="Send" class="btn" />
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="row primary">
+            <div class="column about">
+                <h3> Know Us</h3>
+
+                <ul>
+
+
+                    <li>
+                        <a href="#faq">Careers</a>
+                    </li>
+                    <li>
+                        <a href="#cookies-policy">BTB and Our Planet</a>
+                    </li>
+                    <li>
+                        <a href="#terms-of-services">  Investor Relations</a>
+                    </li>
+                    <li>
+                        <a href="#support">  Press Releases</a>
+                    </li>
+                </ul>
+
+            </div>
+
+            <div class="column links">
+                <h3>Make Money with Us</h3>
+
+                <ul>
+
+                    <li>
+                        <a href="#faq">  Sell on BTB</a>
+                    </li>
+                    <li>
+                        <a href="#cookies-policy">BTB Associates</a>
+                    </li>
+                    <li>
+                        <a href="#terms-of-services">  Sell on BTB Handmade</a>
+                    </li>
+                    <li>
+                        <a href="#support"> Advertise Your Products</a>
+                    </li>
+                </ul>
+
+            </div>
+
+
+            <div class="column links">
+
+
+
+
+
+                <h3>Let Us Help You</h3>
+                <ul>
+                    <li>
+                        <a href="#faq">COVID-19 and BTB</a>
+                    </li>
+                    <li>
+                        <a href="#cookies-policy"> Shipping Rates & Policies</a>
+                    </li>
+                    <li>
+                        <a href="#terms-of-services"> BTB Prime</a>
+                    </li>
+                    <li>
+                        <a href="#support">Returns Are Easy
+                            Manage</a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="row copyright">
+            <p>Copyright &copy; 2021 Foolish Developer</p>
+        </div>
+    </footer>
+
+    <script>
+
+        const inputs = document.querySelectorAll(".input");
+
+        function focusFunc() {
+            let parent = this.parentNode;
+            parent.classList.add("focus");
+        }
+
+        function blurFunc() {
+            let parent = this.parentNode;
+            if (this.value == "") {
+                parent.classList.remove("focus");
+            }
+        }
+
+        inputs.forEach((input) => {
+            input.addEventListener("focus", focusFunc);
+            input.addEventListener("blur", blurFunc);
+        });
+
+    </script>
+
 {% endblock %}
