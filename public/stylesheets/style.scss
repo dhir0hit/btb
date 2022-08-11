@@ -135,10 +135,17 @@ $fontfamly-Josefin: 'Josefin Sans', sans-serif;
 
 .btn_outline {
   @include theme.button_outline;
+  text-decoration: none;
+  list-style-type: none;
+  font-family: theme.$fontfamly-Josefin;
 }
 
 .btn_filled {
   @include theme.button_filled;
+  text-decoration: none;
+  list-style-type: none;
+  font-family: theme.$fontfamly-Josefin;
+
 }
 
 

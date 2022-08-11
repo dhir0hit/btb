@@ -131,6 +131,9 @@
   border: 1px solid #083b66 !important;
   color: #083b66 !important;
   padding: 8px 16px;
+  text-decoration: none;
+  list-style-type: none;
+  font-family: "Josefin Sans", sans-serif;
 }
 .btn_outline:hover {
   background-color: #083b66 !important;
@@ -143,6 +146,9 @@
   background-color: #083b66 !important;
   color: whitesmoke !important;
   padding: 8px 16px;
+  text-decoration: none;
+  list-style-type: none;
+  font-family: "Josefin Sans", sans-serif;
 }
 .btn_filled:hover {
   background-color: whitesmoke !important;
