@@ -249,30 +249,40 @@ router.get("/logout", function (req, res, next) {
 /*
 * USER'S CART
 * */
+/*Get Cart*/
+router.get("/cart", function (req, res, next) {
+  res.render("Users/cart", {title: "Cart - " + req.session.username})
+})
+
 /*Add to cart*/
 router.get("/add_to_cart/:Id", function (req, res, next) {
   let db = req.db;
   let collection = db.get('users');
   let productId = req.params.Id
 
-  collection.find({username: req.session.username}, {}, function (error, Userdata) {
-    if(error) {next(error)}
-    else {
-      let userCart = Userdata[0].cart;
-      userCart.push(productId)
+  if(req.session.loggedIn) {
+    collection.find({username: req.session.username}, {}, function (error, Userdata) {
+      if (error) {
+        next(error)
+      } else {
+        let userCart = Userdata[0].cart;
+        userCart.push(productId)
 
 
-      collection.update({username:req.session.username}, {$set: {cart: userCart}}, function (error, result) {
-        if (error) {next(error)}
-        else{
-          let booldf;
-        }
-      })
-    }
-
-    res.redirect("/product");
-  })
+        collection.update({username: req.session.username}, {$set: {cart: userCart}}, function (error, result) {
+          if (error) {
+            next(error)
+          } else {
+            res.redirect("/product");
+          }
+        })
+      }
+    })
+  } else{
+    res.redirect("/user/login")
+  }
 })
+
 
 
 
