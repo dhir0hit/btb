@@ -1,27 +1,38 @@
 @use "theme";
+
 .detail_container{
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
+  //flex-wrap: wrap;
   justify-content: center;
-  gap: 10px;
 
-  .graphic{
-    img{
-      width: 400px;
-      height: 400px;
-      object-fit: contain;
-    }
-  }
-  .info{
-    padding: 0.5rem;
-    text-transform: capitalize;
 
-    #name {
-      font-family: theme.$fontfamily-Camby;
+  .sub_container{
+    margin-block: 2rem;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    width: 100%;
+    max-width: 1500px;
+
+    .graphic{
+      img{
+        width: 400px;
+        height: 400px;
+        object-fit: contain;
+      }
     }
-    #brand_name {
-      font-family: theme.$fontfamily-Juilius;
+    .info{
+      padding: 0.5rem;
+      text-transform: capitalize;
+
+      #name {
+        font-family: theme.$fontfamily-Camby;
+      }
+      #brand_name {
+        font-family: theme.$fontfamily-Juilius;
+      }
     }
+
   }
 }

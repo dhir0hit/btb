@@ -24,45 +24,52 @@
 
 
     <div class="detail_container">
-        <div class="graphic">
-            <img src="/{{ imageList[product.id - 1] }}" alt="{{ product.name }}">
+        <div class="sub_container">
+            <div class="graphic">
+                <img src="/{{ imageList[product.id - 1] }}" alt="{{ product.name }}">
 
-            {% set rating = 0 %}
-            {% set count = 0 %}
+                {% set rating = 0 %}
+                {% set count = 0 %}
 
-            {% for r in product.review %}
-                {% set rating = rating + r %}
-            {% endfor %}
+                {% for r in product.review %}
+                    {% set rating = rating + r %}
+                {% endfor %}
 
-            {% set rating = rating / review|length %}
+                {% set rating = rating / review|length %}
 
-            <div style="width: {{ 4.3 * 100 / 5 }}%">
-                <span class="material-symbols-outlined">star</span>
-                <span class="material-symbols-outlined">star</span>
-                <span class="material-symbols-outlined">star</span>
-                <span class="material-symbols-outlined">star</span>
-                <span class="material-symbols-outlined">star</span>
+                {# TODO: fix rating problem #}
+                {# TODO: show total rating and other rating features #}
+
+                <div style="width: {{ 4.3 * 100 / 5 }}%">
+                    <span class="material-symbols-outlined">star</span>
+                    <span class="material-symbols-outlined">star</span>
+                    <span class="material-symbols-outlined">star</span>
+                    <span class="material-symbols-outlined">star</span>
+                    <span class="material-symbols-outlined">star</span>
+                </div>
             </div>
-        </div>
-        <div class="info" >
-            <div>
-                <h2 id="name">{{ product.name }}</h2>
-                <h4 id="brand_name">{{ product.brandName }}</h4>
-            </div>
-            <div>
-                <h3>Type: {{ product.productType }}</h3>
-            </div>
-            <div>
-                <h2>Price: {{ product.price }}</h2>
-                <h3>Stock: {{ product.stock }}</h3>
-            </div>
-            <div>
-            {% if businessAccount %}
-                <a class="btn_outline" href="/product/edit?id={{ product.id }}">Edit</a>
-                <a class="btn_outline" href="/product/create">Create</a>
-            {% endif %}
+            <div class="info" >
+                <div>
+                    <h2 id="name">{{ product.name }}</h2>
+                    <h4 id="brand_name">{{ product.brandName }}</h4>
+                </div>
+                <div>
+                    <h3>Type: {{ product.productType }}</h3>
+                </div>
+                <div>
+                    <h2>Price: {{ product.price }}</h2>
+                    <h3>Stock: {{ product.stock }}</h3>
+                </div>
+                <div>
+                    <a href="/user/add_to_cart/{{ product.id }}">Add to cart</a>
+                {% if businessAccount %}
+                    <a class="btn_outline" href="/product/edit?id={{ product.id }}">Edit</a>
+                    <a class="btn_outline" href="/product/create">Create</a>
+                {% endif %}
+                </div>
             </div>
         </div>
     </div>
+    <script src="/javascripts/cart.js"></script>
 
 {% endblock %}

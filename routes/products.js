@@ -23,7 +23,7 @@ router.get('/', function(req, res, next) {
 })
 
 /*Get list page*/
-router.get('/filter/:tagId', function(req, res, next) {
+router.get('/filter/:Id', function(req, res, next) {
     let userName;
     let db = req.db;
     let collection = db.get('products');
@@ -35,7 +35,7 @@ router.get('/filter/:tagId', function(req, res, next) {
         userName = "";
     }
 
-    let searchBar = req.params.tagId;
+    let searchBar = req.params.Id;
     collection.find({$or: [
         {tags:{'$regex':searchBar, '$options':'i'}},
             {brandName:{'$regex':searchBar, '$options':'i'}},

@@ -11,23 +11,29 @@
 .detail_container {
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
   justify-content: center;
-  gap: 10px;
 }
-.detail_container .graphic img {
+.detail_container .sub_container {
+  margin-block: 2rem;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  width: 100%;
+  max-width: 1500px;
+}
+.detail_container .sub_container .graphic img {
   width: 400px;
   height: 400px;
   object-fit: contain;
 }
-.detail_container .info {
+.detail_container .sub_container .info {
   padding: 0.5rem;
   text-transform: capitalize;
 }
-.detail_container .info #name {
+.detail_container .sub_container .info #name {
   font-family: "Cambay", sans-serif;
 }
-.detail_container .info #brand_name {
+.detail_container .sub_container .info #brand_name {
   font-family: "Julius Sans One", sans-serif;
 }
 

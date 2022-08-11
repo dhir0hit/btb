@@ -246,6 +246,36 @@ router.get("/logout", function (req, res, next) {
 })
 
 
+/*
+* USER'S CART
+* */
+/*Add to cart*/
+router.get("/add_to_cart/:Id", function (req, res, next) {
+  let db = req.db;
+  let collection = db.get('users');
+  let productId = req.params.Id
+
+  collection.find({username: req.session.username}, {}, function (error, Userdata) {
+    if(error) {next(error)}
+    else {
+      let userCart = Userdata[0].cart;
+      userCart.push(productId)
+
+
+      collection.update({username:req.session.username}, {$set: {cart: userCart}}, function (error, result) {
+        if (error) {next(error)}
+        else{
+          let booldf;
+        }
+      })
+    }
+
+    res.redirect("/product");
+  })
+})
+
+
+
 router.get('/data', function (req, res, next) {
   var db = req.db;
   var collection = db.get('users');
