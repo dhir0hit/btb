@@ -60,6 +60,15 @@
                     <h2>Price: {{ product.price }}</h2>
                     <h3>Stock: {{ product.stock }}</h3>
                 </div>
+
+                <div>
+                    <ul>
+                        {% for feature in product.features %}
+                            <li>{{ feature }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+
                 <div>
                     <a href="/user/add_to_cart/{{ product.id }}">Add to cart</a>
                 {% if businessAccount %}
