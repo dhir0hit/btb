@@ -6,7 +6,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 var mongo = require('mongodb')
-const connectionUrl = 'localhost:27017/btbdb';
+const connectionUrl = 'mongodb+srv://admin:admin1234567890@btbdb.ivtsmni.mongodb.net/?retryWrites=true&w=majority';
 var monk = require('monk');
 var db = monk(connectionUrl);
 
