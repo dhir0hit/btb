@@ -254,9 +254,13 @@ router.get("/cart", function (req, res, next) {
   let db = req.db;
   var collection = db.get("users");
 
-  collection.find({username: req.session.username}, {}, function (error, userData) {
-    res.render("Users/cart", {title: "Cart - " + req.session.username, cart_info: userData[0].cart});
-  })
+  if (req.session.loggedIn) {
+    collection.find({username: req.session.username}, {}, function (error, userData) {
+      res.render("Users/cart", {title: "Cart - " + req.session.username, cart_info: userData[0].cart});
+    })
+  } else {
+    res.redirect("/user/login");
+  }
 })
 
 /*Add to cart*/

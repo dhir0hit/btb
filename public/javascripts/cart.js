@@ -37,29 +37,6 @@ $(document).ready(function () {
             item = parseInt(item);
             $(".cart_item_container").append(`<div class="cart_item"><div class="cart_item_detail"><div class="graphic"><img src="/${imageList[item]}"></div><div class="info"><h2>${productList[item].name}</h2><h4>${productList[item].brandName}</h4></div></div><div><h4>${productList[item].price}</h4></div></div>`);
         }
-
-
-/*
-        for(let product in cartIdList) {
-            product = parseInt(product)
-            console.log(product)
-            $(".cart_item_container")[0].appendChild(
-        "<div class=\"cart_item\">\n" +
-        "                <div class=\"cart_item_detail\">\n" +
-        "                    <div class=\"graphic\">\n" +
-        "                        <img src=\"/images/item/13.jpg\">\n" +
-        "                    </div>\n" +
-        "                    <div class=\"info\">\n" +
-        "                        <h2>product name</h2>\n" +
-        "                        <h4>Brand Name</h4>\n" +
-        "                    </div>\n" +
-        "                </div>\n" +
-        "                <div>\n" +
-        "                    <h4>price</h4>\n" +
-        "                </div>\n" +
-        "            </div>"
-    )
-        }*/
     })
 })
 
