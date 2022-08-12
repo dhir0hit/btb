@@ -3,17 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="0a5b3acd-d73f-42b3-aa01-9e41d3f040f9" name="Changes" comment="card read DONE">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/javascripts/cart.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/javascripts/cart.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/stylesheets/about.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/stylesheets/about.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/stylesheets/about.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/public/stylesheets/about.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/stylesheets/cart.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/stylesheets/cart.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/stylesheets/cart.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/public/stylesheets/cart.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/stylesheets/cart.scss" beforeDir="false" afterPath="$PROJECT_DIR$/public/stylesheets/cart.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/users.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/Products/card.twig" beforeDir="false" afterPath="$PROJECT_DIR$/views/Products/card.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/Users/cart.twig" beforeDir="false" afterPath="$PROJECT_DIR$/views/Users/cart.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/Users/cart_card.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/Users/user.twig" beforeDir="false" afterPath="$PROJECT_DIR$/views/Users/user.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/Products/details.twig" beforeDir="false" afterPath="$PROJECT_DIR$/views/Products/details.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,7 +61,7 @@
       <updated>1660181314877</updated>
       <workItem from="1660181318128" duration="11910000" />
       <workItem from="1660242172141" duration="2432000" />
-      <workItem from="1660254818525" duration="14892000" />
+      <workItem from="1660254818525" duration="15274000" />
     </task>
     <task id="LOCAL-00001" summary="fixed images path">
       <created>1660182531568</created>
@@ -115,7 +105,14 @@
       <option name="project" value="LOCAL" />
       <updated>1660270718498</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="card read DONE">
+      <created>1660271855335</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1660271855335</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
