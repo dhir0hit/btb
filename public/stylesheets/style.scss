@@ -218,7 +218,7 @@ footer {
 
   .row {
     padding: 1em 1em;
-    background-color: theme.$highlightColor;
+
   }
 
   .row.primary {
@@ -226,6 +226,7 @@ footer {
     grid-template-columns: 4fr 3fr 3fr;
     align-items: stretch;
     overflow: hidden;
+    background-color: theme.$highlightColor;
   }
 
   .column {
@@ -273,11 +274,13 @@ footer {
   .copyright {
     padding: 0.3em 1em;
     border-left: 1px solid theme.$highlightColor;
+    border-bottom: 1px solid theme.$highlightColor;
   }
 
   .copyright p {
     font-size: 0.9em;
     text-align: right;
+    color: theme.$highlightColor;
   }
 }
 @media screen and (max-width: 850px) {

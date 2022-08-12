@@ -1,13 +1,15 @@
 @use "theme";
-
-.detail_container{
+  *{
+    font-family: Cambria;
+  }
+.detail_container {
   display: flex;
   flex-direction: row;
   //flex-wrap: wrap;
   justify-content: center;
 
 
-  .sub_container{
+  .sub_container {
     margin-block: 2rem;
     display: flex;
     flex-direction: row;
@@ -15,24 +17,40 @@
     width: 100%;
     max-width: 1500px;
 
-    .graphic{
-      img{
-        width: 400px;
-        height: 400px;
+    .graphic {
+      img {
+        width: 600px;
+        height: 600px;
         object-fit: contain;
+        background-color: white;
+        @include theme.box-shadow;
       }
     }
-    .info{
+
+    .info {
       padding: 0.5rem;
       text-transform: capitalize;
 
-      #name {
-        font-family: theme.$fontfamily-Camby;
-      }
-      #brand_name {
-        font-family: theme.$fontfamily-Juilius;
-      }
-    }
 
+      ul {
+        padding: 0px;
+
+      }
+
+      li::marker {
+        color: theme.$highlightColor;
+        font-size: 1em;
+        font-weight: 100;
+
+
+      }
+
+
+
+    }
   }
+
 }
+
+
+
