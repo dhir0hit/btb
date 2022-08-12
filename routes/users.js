@@ -251,7 +251,12 @@ router.get("/logout", function (req, res, next) {
 * */
 /*Get Cart*/
 router.get("/cart", function (req, res, next) {
-  res.render("Users/cart", {title: "Cart - " + req.session.username})
+  let db = req.db;
+  var collection = db.get("users");
+
+  collection.find({username: req.session.username}, {}, function (error, userData) {
+    res.render("Users/cart", {title: "Cart - " + req.session.username, cart_info: userData[0].cart});
+  })
 })
 
 /*Add to cart*/
