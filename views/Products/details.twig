@@ -40,6 +40,13 @@
                 {# TODO: fix rating problem #}
                 {# TODO: show total rating and other rating features #}
 
+
+            </div>
+            <div class="info" >
+                <div>
+                    <h2 id="name"><b>{{ product.name }}</b></h2>
+                    <h4 id="brand_name">{{ product.brandName }}</h4>
+                </div>
                 <div style="width: {{ 4.3 * 100 / 5 }}%">
                     <span class="material-symbols-outlined">star</span>
                     <span class="material-symbols-outlined">star</span>
@@ -47,23 +54,32 @@
                     <span class="material-symbols-outlined">star</span>
                     <span class="material-symbols-outlined">star</span>
                 </div>
-            </div>
-            <div class="info" >
+            <hr>
                 <div>
-                    <h2 id="name">{{ product.name }}</h2>
-                    <h4 id="brand_name">{{ product.brandName }}</h4>
+                    <h2>${{ product.price }}</h2>
+                    <h3>Stock: </h3><p>{{ product.stock }}</p>
                 </div>
                 <div>
-                    <h3>Type: {{ product.productType }}</h3>
+                    <h3>Type:</h3><p>{{ product.productType }}</p>
                 </div>
+
+
                 <div>
-                    <h2>Price: {{ product.price }}</h2>
-                    <h3>Stock: {{ product.stock }}</h3>
+                    <ul>
+                        <h3> Features:-</h3>
+
+                        {% for feature in product.features %}
+                            <li>{{ feature }}</li>
+                        {% endfor %}
+                    </ul>
                 </div>
-                <div>
-                    <a href="/user/add_to_cart/{{ product.id }}">Add to cart</a>
+
+                <div class ="button">
+                    <a class="btn_outline"  href="/user/add_to_cart/{{ product.id }}">Add to cart</a>
                 {% if businessAccount %}
+                    <br>
                     <a class="btn_outline" href="/product/edit?id={{ product.id }}">Edit</a>
+                    <br>
                     <a class="btn_outline" href="/product/create">Create</a>
                 {% endif %}
                 </div>

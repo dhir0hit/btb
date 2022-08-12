@@ -191,13 +191,13 @@ footer footer * {
 
 footer .row {
   padding: 1em 1em;
-  background-color: #083b66;
 }
 footer .row.primary {
   display: grid;
   grid-template-columns: 4fr 3fr 3fr;
   align-items: stretch;
   overflow: hidden;
+  background-color: #083b66;
 }
 footer .column {
   width: 100%;
@@ -237,10 +237,12 @@ footer .about p {
 footer .copyright {
   padding: 0.3em 1em;
   border-left: 1px solid #083b66;
+  border-bottom: 1px solid #083b66;
 }
 footer .copyright p {
   font-size: 0.9em;
   text-align: right;
+  color: #083b66;
 }
 
 @media screen and (max-width: 850px) {

@@ -8,6 +8,10 @@
     background-color: whitesmoke;
   }
 }
+* {
+  font-family: Cambria;
+}
+
 .detail_container {
   display: flex;
   flex-direction: row;
@@ -22,19 +26,23 @@
   max-width: 1500px;
 }
 .detail_container .sub_container .graphic img {
-  width: 400px;
-  height: 400px;
+  width: 600px;
+  height: 600px;
   object-fit: contain;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .detail_container .sub_container .info {
   padding: 0.5rem;
   text-transform: capitalize;
 }
-.detail_container .sub_container .info #name {
-  font-family: "Cambay", sans-serif;
+.detail_container .sub_container .info ul {
+  padding: 0px;
 }
-.detail_container .sub_container .info #brand_name {
-  font-family: "Julius Sans One", sans-serif;
+.detail_container .sub_container .info li::marker {
+  color: #083b66;
+  font-size: 1em;
+  font-weight: 100;
 }
 
 /*# sourceMappingURL=productDetails.css.map */

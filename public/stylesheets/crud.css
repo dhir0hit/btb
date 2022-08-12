@@ -20,6 +20,7 @@ input[type=text], select {
 
 body {
   background-color: #f2f2f2;
+  font-family: Cambria;
 }
 
 .outline {
@@ -43,7 +44,7 @@ input[type=submit] {
 }
 
 input[type=submit]:hover {
-  background-color: #45a049;
+  background-color: #00bcd4;
 }
 
 div {

@@ -1,8 +1,8 @@
 @use "theme";
 .container1 {
   position: relative;
-  width: 80%;
-  min-height: 100vh;
+
+
   padding: 2rem;
   overflow: hidden;
   display: flex;
@@ -21,7 +21,17 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
 }
+.header-c{
+  width:98%;
 
+  margin-top: 5vh;
+  @include theme.box-shadow;
+
+
+  img{
+    width:100%;
+  }
+}
 .contact-form {
   background-color: orange;
   position: relative;
@@ -346,7 +356,32 @@ textarea.input {
   }
 }
 
+#service {
+  margin: 34px;
+  display: flex;
+}
 
+#service .box {
+  padding: 45px;
+  margin: 3px 6px;
+  border-radius: 28px;
+
+}
+
+#service .box img {
+
+  height: 100px;
+  margin: auto;
+  display: block;
+  border-radius: 200px;
+  background-color: #083b66;
+
+}
+
+#service .box p {
+  font-family: sans-serif;
+  text-align: center;
+}
 
 .credit{
   text-align: center;

@@ -3,73 +3,91 @@
 {% block start %}
     {% block body %}
 
+<style>
 
-        <style>
-            input[type=text], select {
-                width: 100%;
-                padding: 12px 20px;
-                margin: 8px 0;
-                display: inline-block;
-                border: 1px solid #ccc;
-                border-radius: 4px;
-                box-sizing: border-box;
-            }
-            form
-            {
-                align:"center";
-            }
-            form {
-                width: 300px;
-                margin: 0 auto;
-            }
+    input[type=text], select {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
 
-            input[type=submit] {
-                width: 100%;
-                background-color: #4CAF50;
-                color: white;
-                padding: 14px 20px;
-                margin: 8px 0;
-                border: none;
-                border-radius: 4px;
-                cursor: pointer;
-            }
 
-            input[type=submit]:hover {
-                background-color: #45a049;
-            }
+    }
+    body{
+        background-color: #f2f2f2;
+        font-family: Cambria;
+    }
+    .outline
+    {
+        align:"center";
+    }
+    .outline {
+        width: 300px;
+        margin: 0 auto;
 
-            div {
-                border-radius: 5px;
-                background-color: #f2f2f2;
-                padding: 20px;
-            }
-        </style>
+
+    }
+
+    input[type=submit] {
+        width: 100%;
+        background-color: #083b66;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+
+    }
+
+    input[type=submit]:hover {
+        background-color: #00bcd4;
+    }
+
+    div {
+        border-radius: 5px;
+        background-color: #f2f2f2;
+        padding: 20px;
+    }
+    .outline{
+
+        margin-top: 3%;
+
+
+    }
+
+
+</style>
         <body>
 
-        <h2>Editing <span id="editHeading">{{ prod_id }}</span></h2>
+        <h2> <span id="editHeading">{{ prod_id }}</span></h2>
 
-        <form method="post" action="/product/edit/save">
 
-            <label for="name">name</label>
+        <form class="outline" method="post" action="/product/edit/save">
+
+            <label for="name"><b>Name</b></label>
             <input type="text" id="name" name="name" placeholder="Product name">
 
-            <label for="productType">productType</label>
+            <label for="productType"><b>Product Type</b></label>
             <input type="text" id="type" name="productType" placeholder="Type of Product">
 
-            <label for="brandName">brandName</label>
+            <label for="brandName"><b>Brand Name</b></label>
             <input type="text" id="brandName" name="brandName" placeholder="Which Brand do you want to buy">
 
             {# TODO: create js function to seprate input to array #}
-            <label for="features">features</label>
+            <label for="features"><b>Features</b></label>
             <input type="text" id="features" name="features" placeholder="Special Features">
 
-            <label for="price">price</label>
+            <label for="price"><b>Price</b></label>
             <input type="text" id="price" name="price" placeholder="Price">
 
-            <label for="stock">stock</label>
+            <label for="stock"><b>Stock</b></label>
             <input type="text" id="stock" name="stock" placeholder="Stock">
 
-            <label for="tags">tags</label>
+            <label for="tags"><b>Tags</b></label>
             <input type="text" id="tags" name="tags" placeholder="Special Tags">
 
             <input type="submit" value="Submit">
