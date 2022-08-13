@@ -111,9 +111,10 @@ router.post('/create',function (req, res, next) {
 })
 
 
-router.get('/edit',function (req, res,next){
+router.get('/:ID/edit',function (req, res,next){
     let userName;
     const prodId = parseInt(req.query.id);
+    let prod_Id = req.params.Id;
     if (req.session.loggedIn != undefined && req.session.loggedIn) {
         userName = req.session.username;
     } else {
@@ -124,6 +125,7 @@ router.get('/edit',function (req, res,next){
 })
 
 router.post('/edit/save',function (req, res, next){
+
     let name = req.body.name;
     let prodType = req.body.type;
     let brandName = req.body.brandName;
@@ -135,19 +137,22 @@ router.post('/edit/save',function (req, res, next){
     let db = req.db;
     let collection = db.get('products');
 
+
     let userName;
     if (req.session.loggedIn != undefined && req.session.loggedIn) {
         userName = req.session.username
-        collection.update({name: req.session.name}, {$set:{name: name, type: prodType, brandName: brandName, features: features, price: price, stock: stock, tags: tags}}, function (error, result){
+
+        collection.update({id: prodId}, {$set:{name: name, type: prodType, brandName: brandName, features: features, price: price, stock: stock, tags: tags}}, function (error, result){
             if (error) {res.send("<h1>Unable to update</h1>")}
             else {
                 req.session.name = name;
             }
+
             res.redirect("../");
         })
     } else {
         userName = ""
-        res.redirect("/user/login");
+        res.redirect("/product/details");
     }
 
 })
@@ -175,7 +180,25 @@ router.get('/details',function (req, res,next){
     })
 })
 
+router.get("/:prodName/delete", function (req, res, next) {
+    var db = req.db;
+    var collection = db.get('products');
 
+
+    let name = req.params.prodName;
+
+
+    collection.remove({name: name}, function (error, result) {
+
+        if(error){
+            res.send("<h1>unable to delete</h1>")
+        } else{
+
+            res.redirect("/product")
+        }
+    });
+
+});
 
 
 router.get('/getAll', function (req, res, next) {

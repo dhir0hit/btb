@@ -12,6 +12,7 @@
     "dns": "^0.2.2",
     "express": "~4.16.1",
     "express-session": "^1.17.3",
+    "fs": "^0.0.1-security",
     "http-errors": "~1.6.3",
     "mongodb": "^4.8.1",
     "monk": "^7.3.4",
