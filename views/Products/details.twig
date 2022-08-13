@@ -28,14 +28,6 @@
             <div class="graphic">
                 <img src="/{{ imageList[product.id - 1] }}" alt="{{ product.name }}">
 
-                {% set rating = 0 %}
-                {% set count = 0 %}
-
-                {% for r in product.review %}
-                    {% set rating = rating + r %}
-                {% endfor %}
-
-                {% set rating = rating / review|length %}
 
                 {# TODO: fix rating problem #}
                 {# TODO: show total rating and other rating features #}
@@ -47,12 +39,26 @@
                     <h2 id="name"><b>{{ product.name }}</b></h2>
                     <h4 id="brand_name">{{ product.brandName }}</h4>
                 </div>
-                <div style="width: {{ 4.3 * 100 / 5 }}%">
-                    <span class="material-symbols-outlined">star</span>
-                    <span class="material-symbols-outlined">star</span>
-                    <span class="material-symbols-outlined">star</span>
-                    <span class="material-symbols-outlined">star</span>
-                    <span class="material-symbols-outlined">star</span>
+                <div class="rating">
+                    <div class="row">
+                        {% set rating = 0 %}
+                        {% set count = 0 %}
+
+                        {% for r in product.review %}
+                            {% set rating = rating + r %}
+                        {% endfor %}
+
+                        {% set rating = rating / review|length %}
+
+
+                        <div style="width: {{ rating * 100 / 5 }}%">
+                            <span class="material-symbols-outlined">star</span>
+                            <span class="material-symbols-outlined">star</span>
+                            <span class="material-symbols-outlined">star</span>
+                            <span class="material-symbols-outlined">star</span>
+                            <span class="material-symbols-outlined">star</span>
+                        </div>
+                    </div>
                 </div>
             <hr>
                 <div>
@@ -86,6 +92,6 @@
             </div>
         </div>
     </div>
-    <script src="/javascripts/cart.js"></script>
+
 
 {% endblock %}

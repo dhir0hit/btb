@@ -1,0 +1,14 @@
+{% extends "../_doublenavlayout.twig" %}
+
+{% block body %}
+    <link rel='stylesheet' href="/stylesheets/cart.css">
+
+    <div class="cart_page_container">
+        <div class="cart_item_container">
+            {# Items Will be added here #}
+        </div>
+    </div>
+
+    <div id="cart_info" style="display: none">{{ cart_info }}</div>
+    <script src="/javascripts/cart.js"></script>
+{% endblock %}

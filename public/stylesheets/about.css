@@ -10,6 +10,81 @@
   text-align: justify;
 }
 
+.footer .slides, .header .slides * {
+  box-sizing: border-box;
+}
+
+.footer .slides, .header .slide {
+  width: 100%;
+  height: 600px;
+}
+
+.footer.slides {
+  position: relative;
+}
+
+.footer .slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.footer .slide {
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.footer #slide1 img {
+  width: 100%;
+  height: 600px;
+}
+
+.footer .slide {
+  z-index: 1;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s;
+}
+
+.footer .slides input[type=radio]:checked + .slide {
+  z-index: 2;
+  opacity: 1;
+  visibility: visible;
+}
+
+.footer .slides input[type=radio] {
+  display: none;
+}
+
+.footer .last, .header .next {
+  position: absolute;
+  z-index: 3;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 40px;
+  font-weight: 700;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 10px;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s;
+}
+
+.footer .last {
+  left: 0;
+}
+
+.footer .next {
+  right: 0;
+}
+
+.footer .slides:hover .last, .header .slides:hover .next {
+  opacity: 1;
+  visibility: visible;
+}
+
 @media screen and (max-width: 992px) {
   .three {
     flex-direction: column;

@@ -1,0 +1,120 @@
+Index: routes/users.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>var express = require('express');\r\nvar router = express.Router();\r\n\r\n/* GET Users listing. */\r\n/*show user detail which is logged ijn*/\r\nrouter.get('/', function(req, res) {\r\n  let userName;\r\n  if (req.session.loggedIn != undefined && req.session.loggedIn) {\r\n    userName = req.session.username\r\n    res.render('Users/user', { title: 'BTB - '+ userName + ' ', user: userName});\r\n  } else {\r\n    userName = \"\"\r\n    res.redirect(\"/user/login\");\r\n  }\r\n\r\n});\r\n\r\n\r\n/* GET login page. */\r\nrouter.get('/login', function(req, res, next) {\r\n  let userName;\r\n  if (req.session.loggedIn != undefined && req.session.loggedIn) {\r\n    userName = req.session.username\r\n  } else {\r\n    userName = \"\"\r\n  }\r\n  res.render('Users/login', { title: 'BTB - Login', user:userName });\r\n});\r\n\r\n/* GET home page. */\r\nrouter.post('/login', function(req, res, next) {\r\n  let user = req.body.username;\r\n  let pass = req.body.password;\r\n  let db = req.db;\r\n  let collection = db.get('users');\r\n\r\n  let bools;\r\n\r\n  collection.findOne({username: user}, {}, function (e, docs) {\r\n    if (e) {\r\n      next(e)\r\n    } else if (docs) {\r\n      bools = true;\r\n      if(docs.password === pass){\r\n        req.session.username = docs.username;\r\n        req.session.loggedIn = true;\r\n        req.session.businessAccount = docs.businessAccount;\r\n        res.redirect(\"/user\");\r\n      } else{\r\n        res.render('Users/login', {title: 'BTB - Login', user: \"\", error: \"password incorrect\"});\r\n      }\r\n    } else {\r\n      bools = false;\r\n    }\r\n  });\r\n\r\n  collection.findOne({email: user}, {}, function (e, docs) {\r\n    if (e) {\r\n      next(e)\r\n    } else if (docs) {\r\n      bools = true;\r\n      if(docs.password === pass){\r\n        req.session.username = docs.username;\r\n        req.session.loggedIn = true;\r\n        req.session.businessAccount = docs.businessAccount;\r\n        res.redirect(\"/user\");\r\n      } else{\r\n        res.render('Users/login', {title: 'BTB - Login', user: \"\", error: \"password incorrect\"});\r\n      }\r\n    } else {\r\n      if (!bools) {\r\n        res.render('Users/login', {title: 'BTB - Login', user: \"\", error: \"username not found\"});\r\n      }\r\n    }\r\n  });\r\n});\r\n\r\n\r\n\r\n/* GET Signup page. */\r\nrouter.get('/signup', function(req, res, next) {\r\n  let user;\r\n  if (req.session.loggedIn != undefined && req.session.loggedIn) {\r\n    user = req.session.username;\r\n  } else {\r\n    user = \"\"\r\n    // req.session.loggedIn = false;\r\n  }\r\n  res.render('Users/signup', { title: 'BTB - Signup', user:user,  loggedIn: false});\r\n});\r\n\r\n/* GET login page. */\r\nrouter.post('/signup', function(req, res, next) {\r\n  let userLoggedIn = false;\r\n  let email = req.body.email;\r\n  let pass = req.body.password1;\r\n  let pass2 = req.body.password2;\r\n\r\n  let profilePic = \"1\";\r\n\r\n  let user = req.body.username;\r\n  let firstName = req.body.first_name;\r\n  let lastName = req.body.last_name;\r\n  let phoneNumber = req.body.phone_number;\r\n  let addressL1 = req.body.address1;\r\n  let addressL2 = req.body.address2;\r\n  let city = req.body.city;\r\n  let province = req.body.province;\r\n  let postalCode = req.body.postal_code;\r\n\r\n  let business_account = false\r\n  if (req.body.business_account && req.body.business_account == \"on\") {\r\n    business_account = true;\r\n  }\r\n  let cart = [];\r\n\r\n  let db = req.db;\r\n  let collection = db.get('users');\r\n\r\n  // find user from db\r\n  if (email) {\r\n    if (pass === pass2) {\r\n      req.session.email = email;\r\n      req.session.password = pass;\r\n      res.render('Users/signup', {title: 'BTB - Signup', user: \"\", loggedIn: true})\r\n    } else{\r\n      res.render('Users/signup', { title: 'BTB - Signup', user: \"\", error: \"passwords did not match\" , loggedIn: false});\r\n    }\r\n  }\r\n  if(user) {\r\n    let Email = req.session.email;\r\n    let Pass = req.session.password;\r\n\r\n    req.session.loggedIn = true;\r\n    req.session.username = user;\r\n    req.session.businessAccount = business_account;\r\n\r\n\r\n    collection.insert({username: user, password: Pass, profilePic: profilePic, firstName: firstName, lastName: lastName, phoneNumber: phoneNumber, email: Email, address1: addressL1, address2: addressL2, city: city, province: province, postalCode: postalCode, businessAccount: business_account, cart: cart}, function (error, result) {\r\n      if(error){next(error)}\r\n      else{\r\n        res.render('Users/signup', {title: 'BTB - Signup', user:req.session.username, loggedIn: false})\r\n      }\r\n    })\r\n  }\r\n});\r\n\r\n\r\n/* Get Edit page */\r\nrouter.get(\"/edit\", function (req, res, next) {\r\n  let userName;\r\n  if (req.session.loggedIn != undefined && req.session.loggedIn) {\r\n    userName = req.session.username\r\n    res.render(\"Users/edit\", {title: userName + \" - Edit\", user: userName})\r\n  } else {\r\n    res.redirect(\"/user/login\");\r\n  }\r\n})\r\n\r\n/* post Edit page */\r\nrouter.post(\"/edit/save\", function (req, res, next) {\r\n  let email = req.body.email;\r\n  let pass = req.body.password;\r\n  let userName = req.body.user_name;\r\n  let firstName = req.body.first_name;\r\n  let lastName = req.body.last_name;\r\n  let phoneNumber = req.body.phone_number;\r\n  let addressL1 = req.body.address_l1;\r\n  let addressL2 = req.body.address_l2;\r\n  let city = req.body.city;\r\n  let province = req.body.province;\r\n  let postalCode = req.body.postal_code;\r\n\r\n  let business_account = false\r\n  if (req.body.business_account && req.body.business_account === \"on\") {\r\n    let business_account = true;\r\n  }\r\n\r\n  let profilePic = \"1\";\r\n\r\n  let db = req.db;\r\n  let collection = db.get('users');\r\n\r\n  if (!req.session.username) {\r\n    res.redirect(\"/user/login\");\r\n  } else {\r\n    if (userName && email && pass && firstName && addressL1 && city && province && postalCode) {\r\n      collection.update({username: req.session.username}, {$set: {username: userName, password: pass, profilePic: profilePic, firstName: firstName, lastName: lastName, phoneNumber: phoneNumber, email: email, address1: addressL1, address2: addressL2, city: city, province: province, postalCode: postalCode, businessAccount: business_account}}, function (error, result){\r\n        if (error) {res.send(\"<h1>Unable to update</h1>\")}\r\n        else {\r\n          req.session.username = userName;\r\n        }\r\n      })\r\n      res.redirect(\"/user\");\r\n    } else {\r\n      if (!userName) {\r\n        res.render(\"Users/edit\", {\r\n          title: userName + \" - Edit\",\r\n          user: req.session.username,\r\n          error: \"User name cannot be empty\"\r\n        })\r\n      } else if (!email) {\r\n        res.render(\"Users/edit\", {title: userName + \" - Edit\", user: userName, error: \"Email cannot be empty\"})\r\n      } else if (!pass) {\r\n        res.render(\"Users/edit\", {title: userName + \" - Edit\", user: userName, error: \"Password cannot be empty\"})\r\n      } else if (!firstName) {\r\n        res.render(\"Users/edit\", {title: userName + \" - Edit\", user: userName, error: \"First Name cannot be empty\"})\r\n      } else if (!addressL1) {\r\n        res.render(\"Users/edit\", {title: userName + \" - Edit\", user: userName, error: \"address cannot be empty\"})\r\n      } else if (!city) {\r\n        res.render(\"Users/edit\", {title: userName + \" - Edit\", user: userName, error: \"City cannot be empty\"})\r\n      } else if (!province) {\r\n        res.render(\"Users/edit\", {title: userName + \" - Edit\", user: userName, error: \"province cannot be empty\"})\r\n      } else if (!postalCode) {\r\n        res.render(\"Users/edit\", {title: userName + \" - Edit\", user: userName, error: \"Postal Code cannot be empty\"})\r\n      }\r\n    }\r\n  }\r\n});\r\n\r\nrouter.get(\"/delete\", function (req, res, next) {\r\n  var db = req.db;\r\n  var collection = db.get('users');\r\n\r\n  collection.remove({username: req.session.username}, function (error, result) {\r\n    if(error){\r\n      res.send(\"<h1>unable to delete</h1>\")\r\n    } else{\r\n      req.session.username = \"\";\r\n      req.session.loggedIn = false;\r\n      res.redirect(\"/user/login\")\r\n    }\r\n  });\r\n\r\n});\r\n\r\nrouter.get(\"/logout\", function (req, res, next) {\r\n  var db = req.db;\r\n  var collection = db.get('users');\r\n\r\n  req.session.username = \"\";\r\n  req.session.loggedIn = false;\r\n  req.session.businessAccount = false;\r\n\r\n  res.redirect(\"/user/login\")\r\n})\r\n\r\n\r\n/*\r\n* USER'S CART\r\n* */\r\n/*Get Cart*/\r\nrouter.get(\"/cart\", function (req, res, next) {\r\n  res.render(\"Users/cart\", {title: \"Cart - \" + req.session.username})\r\n})\r\n\r\n/*Add to cart*/\r\nrouter.get(\"/add_to_cart/:Id\", function (req, res, next) {\r\n  let db = req.db;\r\n  let collection = db.get('users');\r\n  let productId = req.params.Id\r\n\r\n  if(req.session.loggedIn) {\r\n    collection.find({username: req.session.username}, {}, function (error, Userdata) {\r\n      if (error) {\r\n        next(error)\r\n      } else {\r\n        let userCart = Userdata[0].cart;\r\n        userCart.push(productId)\r\n\r\n\r\n        collection.update({username: req.session.username}, {$set: {cart: userCart}}, function (error, result) {\r\n          if (error) {\r\n            next(error)\r\n          } else {\r\n            res.redirect(\"/product\");\r\n          }\r\n        })\r\n      }\r\n    })\r\n  } else{\r\n    res.redirect(\"/user/login\")\r\n  }\r\n})\r\n\r\n\r\n\r\n\r\nrouter.get('/data', function (req, res, next) {\r\n  var db = req.db;\r\n  var collection = db.get('users');\r\n\r\n  collection.find({}, {}, function (error, docs) {\r\n    if (error) {next(error)}\r\n    else {res.json(docs);}\r\n  });\r\n});\r\n\r\n\r\n\r\nmodule.exports = router;\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/routes/users.js b/routes/users.js
+--- a/routes/users.js	(revision b368138eb41f76c415d8783ae594a9b41b1a2b82)
++++ b/routes/users.js	(date 1660263128713)
+@@ -251,7 +251,12 @@
+ * */
+ /*Get Cart*/
+ router.get("/cart", function (req, res, next) {
+-  res.render("Users/cart", {title: "Cart - " + req.session.username})
++  let db = req.db;
++  var collection = db.get("users");
++
++  collection.find({username: req.session.username}, {}, function (error, userData) {
++    res.render("Users/cart", {title: "Cart - " + req.session.username, cart_info: userData[0].cart});
++  })
+ })
+ 
+ /*Add to cart*/
+Index: views/Products/details.twig
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>{% extends '../_doublenavlayout.twig' %}\r\n\r\n{% block body %}\r\n    <link rel='stylesheet' href=\"/stylesheets/productDetails.css\">\r\n\r\n    {% set imageList = [\"images/item/1.png\",\r\n        \"images/item/2.jpg\",\r\n        \"images/item/3.jpg\",\r\n        \"images/item/4.jpg\",\r\n        \"images/item/5.jpg\",\r\n        \"images/item/6.jpg\",\r\n        \"images/item/7.jpg\",\r\n        \"images/item/8.jpg\",\r\n        \"images/item/9.jpg\",\r\n        \"images/item/10.jpg\",\r\n        \"images/item/11.webp\",\r\n        \"images/item/12.jpg\",\r\n        \"images/item/13.jpg\",\r\n        \"images/item/14.webp\",\r\n        \"images/item/15.jpg\",\r\n        \"images/item/16.png\",\r\n        \"images/item/17.webp\",\r\n        \"images/item/18.png\"] %}\r\n\r\n\r\n    <div class=\"detail_container\">\r\n        <div class=\"sub_container\">\r\n            <div class=\"graphic\">\r\n                <img src=\"/{{ imageList[product.id - 1] }}\" alt=\"{{ product.name }}\">\r\n\r\n                {% set rating = 0 %}\r\n                {% set count = 0 %}\r\n\r\n                {% for r in product.review %}\r\n                    {% set rating = rating + r %}\r\n                {% endfor %}\r\n\r\n                {% set rating = rating / review|length %}\r\n\r\n                {# TODO: fix rating problem #}\r\n                {# TODO: show total rating and other rating features #}\r\n\r\n                <div style=\"width: {{ 4.3 * 100 / 5 }}%\">\r\n                    <span class=\"material-symbols-outlined\">star</span>\r\n                    <span class=\"material-symbols-outlined\">star</span>\r\n                    <span class=\"material-symbols-outlined\">star</span>\r\n                    <span class=\"material-symbols-outlined\">star</span>\r\n                    <span class=\"material-symbols-outlined\">star</span>\r\n                </div>\r\n            </div>\r\n            <div class=\"info\" >\r\n                <div>\r\n                    <h2 id=\"name\">{{ product.name }}</h2>\r\n                    <h4 id=\"brand_name\">{{ product.brandName }}</h4>\r\n                </div>\r\n                <div>\r\n                    <h3>Type: {{ product.productType }}</h3>\r\n                </div>\r\n                <div>\r\n                    <h2>Price: {{ product.price }}</h2>\r\n                    <h3>Stock: {{ product.stock }}</h3>\r\n                </div>\r\n\r\n                <div>\r\n                    <ul>\r\n                        {% for feature in product.features %}\r\n                            <li>{{ feature }}</li>\r\n                        {% endfor %}\r\n                    </ul>\r\n                </div>\r\n\r\n                <div>\r\n                    <a href=\"/user/add_to_cart/{{ product.id }}\">Add to cart</a>\r\n                {% if businessAccount %}\r\n                    <a class=\"btn_outline\" href=\"/product/edit?id={{ product.id }}\">Edit</a>\r\n                    <a class=\"btn_outline\" href=\"/product/create\">Create</a>\r\n                {% endif %}\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n    <script src=\"/javascripts/cart.js\"></script>\r\n\r\n{% endblock %}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/views/Products/details.twig b/views/Products/details.twig
+--- a/views/Products/details.twig	(revision b368138eb41f76c415d8783ae594a9b41b1a2b82)
++++ b/views/Products/details.twig	(date 1660261044507)
+@@ -79,6 +79,6 @@
+             </div>
+         </div>
+     </div>
+-    <script src="/javascripts/cart.js"></script>
++
+ 
+ {% endblock %}
+Index: views/Products/create.twig
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>\r\n{% extends '../_doublenavlayout.twig' %}\r\n\r\n    {% block body %}\r\n        <link rel='stylesheet' href=\"/stylesheets/crud.css\">\r\n\r\n        <body>\r\n\r\n\r\n        {# Creating a form  #}\r\n        <form class=\"outline\" method=\"post\" action=\"create\">\r\n\r\n            <label for=\"name\"><b>Name</b></label>\r\n            <input type=\"text\" id=\"name\" name=\"name\" placeholder=\"product name..\">\r\n\r\n            <label for=\"productType\"><b>Product Type</b></label>\r\n            <input type=\"text\" id=\"name\" name=\"name\" placeholder=\"Type of Product..\">\r\n\r\n            <label for=\"brandName\"><b>Brand Name</b></label>\r\n            <input type=\"text\" id=\"brandName\" name=\"brandName\" placeholder=\"What is the type of brand..\">\r\n\r\n            {# TODO: create js function to separate input to array #}\r\n            <label for=\"features\"><b>Features</b></label>\r\n            <input type=\"text\" id=\"features\" name=\"features\" placeholder=\"Special Features ..\">\r\n\r\n            <label for=\"price\"><b>Price</b></label>\r\n            <input type=\"text\" id=\"price\" name=\"price\" placeholder=\"Price ..\">\r\n\r\n            <label for=\"stock\"><b>Stock</b></label>\r\n            <input type=\"text\" id=\"stock\" name=\"stock\" placeholder=\"Stock ..\">\r\n\r\n            <label for=\"tags\"><b>Tags</b></label>\r\n            <input type=\"text\" id=\"tags\" name=\"tags\" placeholder=\"Special Tags ..\">\r\n\r\n            <input type=\"submit\" value=\"Submit\">\r\n\r\n        </form>\r\n\r\n        </body>\r\n    {% endblock %}\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/views/Products/create.twig b/views/Products/create.twig
+--- a/views/Products/create.twig	(revision b368138eb41f76c415d8783ae594a9b41b1a2b82)
++++ b/views/Products/create.twig	(date 1660262856357)
+@@ -6,6 +6,7 @@
+ 
+         <body>
+ 
++        {% TODO: add button to get image for product %}
+ 
+         {# Creating a form  #}
+         <form class="outline" method="post" action="create">
+Index: public/javascripts/cart.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>function addToCart(id) {\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/public/javascripts/cart.js b/public/javascripts/cart.js
+--- a/public/javascripts/cart.js	(revision b368138eb41f76c415d8783ae594a9b41b1a2b82)
++++ b/public/javascripts/cart.js	(date 1660265310694)
+@@ -1,3 +1,48 @@
+-function addToCart(id) {
++
++$(document).ready(function () {
++    let cartIdList;
++    let productList;
++
++
++    // it is an string array
++    cartList = $("#cart_info")[0].innerHTML.split(",");
+ 
++    $.getJSON('/product/getAll', function (data){
++        productList = findProduct(data, cartIdList);
++
++        console.log(productList)
++
++        for(let product in productList) {
++            console.log($(".cart_item_container")[0])
++        }
++    })
++})
++
++    /*.appendChild(
++        "<div class=\"cart_item\">\n" +
++        "                <div class=\"cart_item_detail\">\n" +
++        "                    <div class=\"graphic\">\n" +
++        "                        <img src=\"/images/item/13.jpg\">\n" +
++        "                    </div>\n" +
++        "                    <div class=\"info\">\n" +
++        "                        <h2>product name</h2>\n" +
++        "                        <h4>Brand Name</h4>\n" +
++        "                    </div>\n" +
++        "                </div>\n" +
++        "                <div>\n" +
++        "                    <h4>price</h4>\n" +
++        "                </div>\n" +
++        "            </div>"
++    )*/
++
++function findProduct(productList, userCartList) {
++    let userCartProducts = [];
++    console.log("function", productList, userCartList)
++    for(let product in productList) {
++        if (userCartList.includes(`${product}`)) {
++            console.log(product)
++            userCartProducts.push(product);
++        }
++    }
++    return userCartProducts;
+ }
