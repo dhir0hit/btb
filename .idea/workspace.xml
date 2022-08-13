@@ -3,7 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="0a5b3acd-d73f-42b3-aa01-9e41d3f040f9" name="Changes" comment="card read DONE">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/Products/details.twig" beforeDir="false" afterPath="$PROJECT_DIR$/views/Products/details.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/products.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/products.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/Products/create.twig" beforeDir="false" afterPath="$PROJECT_DIR$/views/Products/create.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,17 +35,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/rohit/Desktop/btbwebsite/bin/www",
-    "list.type.of.created.stylesheet": "SCSS",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;javascript.nodejs.core.library.configured.version&quot;: &quot;18.6.0&quot;,
+    &quot;javascript.nodejs.core.library.typings.version&quot;: &quot;18.6.0&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/rohit/Desktop/btbwebsite/bin/www&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;SCSS&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="www/bin" type="NodeJSConfigurationType" path-to-js-file="bin/www" working-dir="$PROJECT_DIR$">
       <envs>
@@ -61,7 +66,11 @@
       <updated>1660181314877</updated>
       <workItem from="1660181318128" duration="11910000" />
       <workItem from="1660242172141" duration="2432000" />
-      <workItem from="1660254818525" duration="15274000" />
+      <workItem from="1660254818525" duration="16717000" />
+      <workItem from="1660344114152" duration="12742000" />
+      <workItem from="1660358542446" duration="235000" />
+      <workItem from="1660362146243" duration="26000" />
+      <workItem from="1660418527241" duration="362000" />
     </task>
     <task id="LOCAL-00001" summary="fixed images path">
       <created>1660182531568</created>
@@ -112,7 +121,14 @@
       <option name="project" value="LOCAL" />
       <updated>1660271855335</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="card read DONE">
+      <created>1660272237371</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1660272237371</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -136,5 +152,16 @@
     <MESSAGE value="added features to details.twig" />
     <MESSAGE value="card read DONE" />
     <option name="LAST_COMMIT_MESSAGE" value="card read DONE" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/routes/products.js</url>
+          <line>88</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
