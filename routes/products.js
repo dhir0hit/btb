@@ -1,7 +1,6 @@
 var express = require('express');
 var router = express.Router();
 
-
 /*Get list page*/
 router.get('/', function(req, res, next) {
     let userName;
@@ -60,6 +59,55 @@ router.get('/create', function (req, res,next) {
     }
 
     res.render("Products/create", {title: "Create", user: userName});
+})
+
+router.post('/create',function (req, res, next) {
+    let userName;
+
+    let db = req.db;
+    let collection = db.get('products');
+
+    if (req.session.loggedIn != undefined && req.session.loggedIn) {
+        userName = req.session.username;
+    } else {
+        userName = "";
+    }
+
+
+    let Image = req.body.image;
+    let productName = req.body.name;
+    let productType = req.body.type;
+    let brandName = req.body.brandName;
+    let productFeatures = req.body.features;
+    let productPrice = req.body.price;
+    let productStock = req.body.stock;
+    let productTags = req.body.tags;
+
+
+    collection.find({}, {}, function (error, data) {
+        let productId = data.length + 1;
+
+        collection.insert(
+          {
+              id: productId,
+              name: productName,
+              productType: productType,
+              brandName: brandName,
+              features: productFeatures,
+              price: productPrice,
+              stock: productStock,
+              review: 0,
+              tags: productTags
+          }, function (error, result) {
+            if (error) {next(error)}
+            else {
+                res.redirect("/product/")
+            }
+        })
+    })
+
+
+    // res.render("Products/create", {title: "Create", user: userName});
 })
 
 
