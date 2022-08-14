@@ -111,17 +111,22 @@ router.post('/create',function (req, res, next) {
 })
 
 
-router.get('/:ID/edit',function (req, res,next){
+router.get('/edit',function (req, res,next){
     let userName;
     const prodId = parseInt(req.query.id);
-    let prod_Id = req.params.Id;
+
     if (req.session.loggedIn != undefined && req.session.loggedIn) {
         userName = req.session.username;
+        if (req.session.businessAccount) {
+            res.render("Products/edit", {title: "Edit", user: userName, prod_id: prodId});
+        } else {
+            res.redirect("product/")
+        }
     } else {
         userName = "";
+        res.redirect("/user/login");
     }
 
-    res.render("Products/edit", {title: "Edit", user: userName, prod_id: prodId});
 })
 
 router.post('/edit/save',function (req, res, next){
@@ -137,18 +142,16 @@ router.post('/edit/save',function (req, res, next){
     let db = req.db;
     let collection = db.get('products');
 
-
     let userName;
     if (req.session.loggedIn != undefined && req.session.loggedIn) {
         userName = req.session.username
 
-        collection.update({id: prodId}, {$set:{name: name, type: prodType, brandName: brandName, features: features, price: price, stock: stock, tags: tags}}, function (error, result){
+        collection.update({name: req.session.name}, {$set:{name: name, type: prodType, brandName: brandName, features: features, price: price, stock: stock, tags: tags}}, function (error, result){
             if (error) {res.send("<h1>Unable to update</h1>")}
             else {
                 req.session.name = name;
             }
-
-            res.redirect("../");
+            res.redirect("/");
         })
     } else {
         userName = ""

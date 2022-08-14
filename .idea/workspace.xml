@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0a5b3acd-d73f-42b3-aa01-9e41d3f040f9" name="Changes" comment="card read DONE">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2022-08-11_8_48_p_m___Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2022-08-11_8_48_p_m___Changes_.xml" afterDir="false" />
+    <list default="true" id="0a5b3acd-d73f-42b3-aa01-9e41d3f040f9" name="Changes" comment="delete products done">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/products.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/products.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/Products/create.twig" beforeDir="false" afterPath="$PROJECT_DIR$/views/Products/create.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/Products/details.twig" beforeDir="false" afterPath="$PROJECT_DIR$/views/Products/details.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/Products/edit.twig" beforeDir="false" afterPath="$PROJECT_DIR$/views/Products/edit.twig" afterDir="false" />
     </list>
@@ -118,7 +114,14 @@
       <option name="project" value="LOCAL" />
       <updated>1660271855335</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="delete products done">
+      <created>1660434205067</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1660434205067</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -141,6 +144,7 @@
     <MESSAGE value="commit" />
     <MESSAGE value="added features to details.twig" />
     <MESSAGE value="card read DONE" />
-    <option name="LAST_COMMIT_MESSAGE" value="card read DONE" />
+    <MESSAGE value="delete products done" />
+    <option name="LAST_COMMIT_MESSAGE" value="delete products done" />
   </component>
 </project>
