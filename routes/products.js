@@ -129,7 +129,7 @@ router.get('/edit',function (req, res,next){
 
 })
 
-router.post('/edit/save',function (req, res, next){
+router.post('/edit/:Id/save',function (req, res, next){
 
     let name = req.body.name;
     let prodType = req.body.type;
@@ -142,16 +142,17 @@ router.post('/edit/save',function (req, res, next){
     let db = req.db;
     let collection = db.get('products');
 
+    let proId = req.params.Id;
     let userName;
     if (req.session.loggedIn != undefined && req.session.loggedIn) {
         userName = req.session.username
 
-        collection.update({name: req.session.name}, {$set:{name: name, type: prodType, brandName: brandName, features: features, price: price, stock: stock, tags: tags}}, function (error, result){
+        collection.update({id: proId}, {$set:{name: name, type: prodType, brandName: brandName, features: features, price: price, stock: stock, tags: tags}}, function (error, result){
             if (error) {res.send("<h1>Unable to update</h1>")}
             else {
                 req.session.name = name;
             }
-            res.redirect("/");
+            res.redirect("/product/details?id=:Id");
         })
     } else {
         userName = ""
